@@ -38,7 +38,6 @@ public class Subject
         return sjName;
     }
 
-    
     /**
      * 합계를 반환하는 메소드
      *
@@ -49,7 +48,7 @@ public class Subject
     }
 
     /**
-     * 과목등급을 반환하는 메소드
+     * 과목 등급을 반환하는 메소드
      *
      * @return    과목 등급
      */
@@ -83,7 +82,7 @@ public class Subject
      * @param  y  메소드의 샘플 파라미터
      * @return    x 와 y의 합
      */
-    public double getScore()
+    public double getGPA()
     {
         String grade = getGrade();
         switch(grade){
@@ -106,6 +105,23 @@ public class Subject
             default:
                 return 0.0;
         }
+    }
+
+    /**
+     * 과목의 정보를 반환하는 메소드
+     *
+     * @return   과목 정보
+     */
+    public String getSjInformation()
+    {
+        String information = sjName + " " + 
+                            midtermEx + " " + 
+                            finalEx + " " +
+                            assignment + " " +
+                            attend + " " +
+                            calculateTotal() + "점 " +
+                            getGrade();
+        return information;
     }
 
 }
