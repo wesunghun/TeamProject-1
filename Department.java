@@ -1,14 +1,14 @@
 
 /**
  * Department 클래스의 설명을 작성하세요.
- *
+ *학과 객체
  * @author (작성자 이름)
  * @version (버전 번호 또는 작성한 날짜)
  */
 public class Department
 {
     // 인스턴스 변수 - 다음의 예제를 사용자에 맞게 변경하세요.
-    private Student[] students;
+    private Student[] students; 
     private int stdCount;
 
     /**
@@ -22,10 +22,9 @@ public class Department
     }
 
     /**
-     * 예제 메소드 - 이 주석을 사용자에 맞게 바꾸십시오
+     * 학생 객체를 배열에 저장하는 메소드
      *
-     * @param  y  메소드의 샘플 파라미터
-     * @return    x 더하기 y의 결과값을 반환
+     * @param  std 학생객체
      */
     public void saveStdInfo(Student std)
     {
@@ -39,10 +38,9 @@ public class Department
     }
 
     /**
-     * 메소드 예제 - 사용자에 맞게 주석을 바꾸십시오.
+     * 학번을 이용해서 학생 정보를 조회하는 메소드
      *
-     * @param  y  메소드의 샘플 파라미터
-     * @return    x 와 y의 합
+     * @param  stID 학번
      */
     public void searchStdInfo(long stID)
     {
