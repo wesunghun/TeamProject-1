@@ -1,13 +1,13 @@
 
 /**
- * Department 클래스의 설명을 작성하세요.
- *학과 객체
- * @author (작성자 이름)
- * @version (버전 번호 또는 작성한 날짜)
+ * Department 클래스 - 학생 객체를 저장하고 관리하는 클래스
+ * 
+ * @author Team#9_(2023320024 위성훈, 2023320045 김동균, 2023320017 정윤재, 2023320002 노승렬)
+ * @version (2026.05.10.)
  */
 public class Department
 {
-    // 인스턴스 변수 - 다음의 예제를 사용자에 맞게 변경하세요.
+    // 인스턴스 변수 
     private Student[] students; 
     private int stdCount;
 
@@ -18,6 +18,7 @@ public class Department
     {
         // 인스턴스 변수 초기화
         this.stdCount = 0;
+        // 입력 받은 학생 수 크기만큼 Student 배열 생성
         this.students = new Student[size];
     }
 
@@ -28,12 +29,13 @@ public class Department
      */
     public void saveStdInfo(Student std)
     {
+        // 현재 저장 된 학생 수가 배열 크기보다 작은지 확인
         if (stdCount < students.length){
             this.students[stdCount] = std;
             this.stdCount++;
             System.out.println("정보가 등록되었습니다.");
         } else{
-            System.out.println("더 이상 입력할 수 없습니다.");
+            System.out.println("더 이상 입력할 수 없습니다."); // 배열 크기를 초과할 경우 출력
         }
     }
 
@@ -44,14 +46,16 @@ public class Department
      */
     public void searchStdInfo(long stID)
     {
-        // 여기에 코드를 작성하세요
+        // 저장된 학생 수만큼 반복
         for (int i = 0; i < stdCount; i++){
+            // 입력한 학번과 학생 배열의 학번 비교
             if(students[i].getStID() == stID){
                 System.out.println(students[i].getStID() + " " + students[i].getName() +
-                                    "님의 학생 정보입니다.");
+                                    "님의 학생 정보입니다."); // 학생 기본 정보 출력
                 students[i].printInformation();
                 break;
             } else{
+                // 일치하는 학생이 없을 경우 출력
                 System.out.println("학번이 " + stID + "인 학생을 찾을 수 없습니다. 다시 입력하세요.");
             }
         }

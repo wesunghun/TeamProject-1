@@ -1,20 +1,19 @@
 
 /**
- * Student 클래스의 설명을 작성하세요.
- *학생 객체 클래스
- * @author (작성자 이름)
- * @version (버전 번호 또는 작성한 날짜)
+ * Student 클래스 - 학생 정보와 과목 정보를 저장하고 관리하는 클래스 
+ * 학생 객체 클래스
+ * @author Team#9_(2023320024 위성훈, 2023320045 김동균, 2023320017 정윤재, 2023320002 노승렬)
+ * @version (2026.05.10.)
  */
 public class Student
 {
-    // 인스턴스 변수 - 다음의 예제를 사용자에 맞게 변경하세요.
     private long stID; // 학번
     private String name; //학생 이름
     private String dept; //학과
     private int grade; //학년
     private int year; //년도
     private int term; //학기
-    private Subject[] subjects; //과목 정보를 저장하는 배열
+    private Subject[] subjects; //과목 정보를 저장하는 Subject 배열
     private int subjectCount; //과목 수
 
     /**
@@ -31,7 +30,7 @@ public class Student
         this.year = year;
         this.term = term;
         this.subjects = new Subject[maxSubjects]; //과목 정보를 저장하는 배열
-        this.subjectCount = 0; 
+        this.subjectCount = 0; // 저장된 과목 수를 0으로 초기화
     }
 
     /**
@@ -40,10 +39,11 @@ public class Student
      */
     public void saveSubject(Subject subject)
     {
+        // 현재 저장된 과목 수가 배열 크기보다 작은지 확인
         if (subjectCount < subjects.length){
-            subjects[subjectCount++] = subject;
+            subjects[subjectCount++] = subject; // Subject 객체 배열에 과목 객체 저장
         } else{
-            System.out.println("더 이상 입력할 수 없습니다.");
+            System.out.println("더 이상 입력할 수 없습니다."); // 배열 크기를 초과할 경우 출력
         }
     }
 
@@ -54,16 +54,19 @@ public class Student
      */
     public double calculateGPA()
     {
+        // 저장된 과목이 없을 경우 0.0 반환
         if (subjectCount == 0){
             return 0.0;
         }
 
-        double totalScore = 0.0;
+        double totalScore = 0.0; //전체 평점
+        
+        // 저장된 과목 수만큼 반복
         for (int i = 0; i < subjectCount; i++){
-            totalScore += subjects[i].getGPA();
+            totalScore += subjects[i].getGPA(); //과목별 평점을 누적
         }
 
-        return totalScore / subjectCount;
+        return totalScore / subjectCount; // 전체 평점을 과목 수로 나누어 평균 평점 반환
     }
 
     /**
@@ -72,42 +75,44 @@ public class Student
      */
     public void printInformation()
     {
-        System.out.println("=================종합 성적 공지=================");
-        System.out.println("이름: " + name + ", 학번: " + stID + ", 학과: " + dept +
-            ", 학년: " + grade);
-        System.out.println(year + "년, " + term + "학기");
+        System.out.println("=================종합 성적 공지================="); // 종합 성적 출력
+        System.out.println("이름: " + name + ", 학번: " + stID + ", 학과: " + dept + 
+            ", 학년: " + grade); // 학생 기본 정보 출력
+        System.out.println(year + "년, " + term + "학기"); // 년도 및 학기 출력
         System.out.println();
-
+        
+        // 저장된 과목 수만큼 반복
         for (int i = 0; i < subjectCount; i++){
-            String info = subjects[i].getSjInformation();
-            System.out.println(info);
+            String info = subjects[i].getSjInformation(); // 과목별 성적 정보 반환
+            System.out.println(info); // 과목별 성적 출력
         }
-
+        
+        // 종합 성적 결과 출력
         System.out.println("==========================================");
         System.out.println(stID + " " + name + "님의 종합 성적을 공지하겠습니다.");
         System.out.println("과목 수 " + subjectCount + "개, 학점 평점은 " + 
-            calculateGPA() + "입니다.");
+            calculateGPA() + "입니다."); // 과목수 및 평균 평점 출력
     }
 
     /**
      * 학번을 반환하는 메소드
      *
-     * @return    학번
+     * @return 학번
      */
     public long getStID()
     {
-        // 여기에 코드를 작성하세요
+        // 학번 반환
         return this.stID;
     }
-    
+
     /**
      * 이름을 반환하는 메소드
      *
-     * @return    학번
+     * @return 이름
      */
     public String getName()
     {
-        // 여기에 코드를 작성하세요
+        // 이름 반환
         return this.name;
     }
 }
