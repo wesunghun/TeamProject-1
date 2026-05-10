@@ -43,7 +43,7 @@ public class Student
         if (subjectCount < subjects.length){
             subjects[subjectCount++] = subject;
         } else{
-            System.out.println("더 이상 입력할 수 있습니다.");
+            System.out.println("더 이상 입력할 수 없습니다.");
         }
     }
 
