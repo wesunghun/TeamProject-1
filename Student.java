@@ -74,19 +74,40 @@ public class Student
     {
         System.out.println("=================종합 성적 공지=================");
         System.out.println("이름: " + name + ", 학번: " + stID + ", 학과: " + dept +
-                                ", 학년: " + grade);
+            ", 학년: " + grade);
         System.out.println(year + "년, " + term + "학기");
         System.out.println();
-        
+
         for (int i = 0; i < subjectCount; i++){
             String info = subjects[i].getSjInformation();
             System.out.println(info);
         }
-        
+
         System.out.println("==========================================");
         System.out.println(stID + " " + name + "님의 종합 성적을 공지하겠습니다.");
         System.out.println("과목 수 " + subjectCount + "개, 학점 평점은 " + 
-                            calculateGPA() + "입니다.");
+            calculateGPA() + "입니다.");
     }
 
+    /**
+     * 학번을 반환하는 메소드
+     *
+     * @return    학번
+     */
+    public long getStID()
+    {
+        // 여기에 코드를 작성하세요
+        return this.stID;
+    }
+    
+    /**
+     * 이름을 반환하는 메소드
+     *
+     * @return    학번
+     */
+    public String getName()
+    {
+        // 여기에 코드를 작성하세요
+        return this.name;
+    }
 }
