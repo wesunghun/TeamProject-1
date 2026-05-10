@@ -17,7 +17,8 @@ public class Subject
     /**
      * Subject 클래스의 객체 생성자
      */
-    public Subject(String sjName, double midtermEx, double finalEx, double assignment, double attend)
+    public Subject(String sjName, double midtermEx, double finalEx, double assignment, 
+                                double attend)
     {
         // 인스턴스 변수 초기화
         this.sjName = sjName;

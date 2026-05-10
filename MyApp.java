@@ -1,7 +1,7 @@
 
 /**
  * MyApp 클래스의 설명을 작성하세요.
- *
+ *성적 처리 프로그램
  * @author (작성자 이름)
  * @version (버전 번호 또는 작성한 날짜)
  */
@@ -10,7 +10,6 @@ public class MyApp
 {
     public static void main(String[] args){
         Scanner scan = new Scanner(System.in);
-        
         
         System.out.println("=================성적 처리 프로그램=================");
         System.out.println("학번, 이름, 학과, 학년, 년도, 학기, 수강 과목 수를 입력하세요.");
@@ -43,15 +42,12 @@ public class MyApp
             double assign = scan.nextDouble();
             System.out.print("출석점수: ");
             double attend = scan.nextDouble();
-            
-            
+
             Subject subject = new Subject(sjName, midtermEx, finalEx, assign, attend);
             std.saveSubject(subject);
         }
-        
-        
+
         std.printInformation();
-        
         scan.close();
     }
 }
