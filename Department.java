@@ -37,7 +37,7 @@ public class Department
             System.out.println("더 이상 입력할 수 없습니다.");
         }
     }
-    
+
     /**
      * 학번을 이용해서 학생 정보를 조회하는 메소드
      *
@@ -58,17 +58,13 @@ public class Department
 
                 count++;
                 break;
-            } else{
-                // 일치하는 학생이 없을 경우 출력
-                System.out.println("학번이 " + stID + "인 학생을 찾을 수 없습니다. 다시 입력하세요.");
-
             }
-        }
 
-        // 학생을 찾지 못한 경우
-        if(count == 0){
-            System.out.println("학번이 " + stID +
-                "인 학생을 찾을 수 없습니다.");
+            // 학생을 찾지 못한 경우
+            if(count == 0){
+                System.out.println("학번이 " + stID +
+                    "인 학생을 찾을 수 없습니다.");
+            }
         }
     }
 }

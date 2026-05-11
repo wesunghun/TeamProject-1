@@ -12,7 +12,7 @@ public class MyApp
 {
     public static void main(String[] args){
         Scanner scan = new Scanner(System.in);
-
+        
         System.out.println("학생 수를 입력하세요."); //성적을 입력하고자 하는 학생 수 입력 
         int stdCount = scan.nextInt();
 
