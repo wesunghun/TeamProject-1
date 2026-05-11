@@ -16,6 +16,7 @@ public class Subject
 {
     // 인스턴스 변수 - 다음의 예제를 사용자에 맞게 변경하세요.
     private String sjName; //과목명
+    private String pfName; //담당 교수명
     private double midtermEx; //중간점수
     private double finalEx; //기말점수
     private double assignment; //과제점수
@@ -24,11 +25,12 @@ public class Subject
     /**
      * Subject 클래스의 객체 생성자
      */
-    public Subject(String sjName, double midtermEx, double finalEx, double assignment, 
+    public Subject(String sjName, String pfName ,double midtermEx, double finalEx, double assignment, 
                                 double attend)
     {
         // 인스턴스 변수 초기화
         this.sjName = sjName;
+        this.pfName = pfName;
         this.midtermEx = midtermEx;
         this.finalEx = finalEx;
         this.assignment = assignment;
@@ -123,7 +125,8 @@ public class Subject
      */
     public String getSjInformation()
     {   // 과목별 성적 정보를 문자열 형태로 저장
-        String information = sjName + " " + 
+        String information = sjName + " " +
+                            pfName + "교수 " +
                             midtermEx + " " + 
                             finalEx + " " +
                             assignment + " " +

@@ -13,22 +13,25 @@ public class MyApp
     public static void main(String[] args){
         Scanner scan = new Scanner(System.in);
         
-        System.out.println("학생 수를 입력하세요."); //성적을 입력하고자 하는 학생 수 입력
+        System.out.println("성적을 등록할 학생 수를 입력하세요."); //성적을 입력하고자 하는 학생 수 입력
         System.out.print("학생 수>>");
         int stdCount = scan.nextInt();
 
         Department AI = new Department(stdCount); // 입력 받은 학생 수를 기준으로 Department 객체 생성
 
         while(true){
-            System.out.println("=================성적 처리 프로그램=================");
-            System.out.println("1. 정보등록 2. 성적조회 3. 프로그램종료");
-            System.out.println("원하는 기능을 선택하세요.");
             System.out.println("=================================================");
-
-            int choice = scan.nextInt();
+            System.out.println("                 성적 처리 프로그램                ");
+            System.out.println("=================================================");
+            System.out.println("[1] 학생 정보 등록");
+            System.out.println("[2] 학생 성적 조회");
+            System.out.println("[3] 프로그램 종료");
+            System.out.println("=================================================");
+            System.out.print("원하는 기능을 선택하세요.>>");
+            String choice = scan.next();
 
             switch(choice){
-                case 1: 
+                case "1": 
                     for (int i = 0; i < stdCount; i++){ 
                         System.out.println((i+1) + "번째 학생의 학번, 이름, 학과, 학년, 년도, 학기, 수강 과목 수를 입력하세요.");
                         System.out.print("학번: ");
@@ -57,6 +60,8 @@ public class MyApp
                             System.out.println(j + "번째 과목 정보를 입력하세요.");
                             System.out.print("과목명: ");
                             String sjName = scan.next();
+                            System.out.print("담당교수명: ");
+                            String pfName = scan.next();
                             System.out.print("중간점수: ");
                             double midtermEx = scan.nextDouble();
                             System.out.print("기말점수: ");
@@ -67,14 +72,14 @@ public class MyApp
                             double attend = scan.nextDouble();
 
                             // 입력받은 과목 정보를 기반으로 Subject 객체 생성
-                            Subject subject = new Subject(sjName, midtermEx, finalEx, assign, attend);
+                            Subject subject = new Subject(sjName, pfName, midtermEx, finalEx, assign, attend);
 
                             // 생성된 Subject 객체를 Student 배열에 저장
                             std.saveSubject(subject);
                         }
                     }
                     break;
-                case 2:
+                case "2":
                     while(true){ // 성적 조회 
                         // 조회할 학생의 학번 입력
                         System.out.println("조회할 학생의 학번을 입력하세요.");
@@ -89,13 +94,15 @@ public class MyApp
 
                         // yes 입력 시 조회 반복
                         if(answer.equals("yes")){
+                            System.out.println("=================================================");
                             continue;
                         } else{
                             break;
                         }
                     }
                     break;
-                case 3:
+                case "3":
+                    System.out.println("=================================================");
                     System.out.println("프로그램을 종료합니다.");
                     System.exit(0);
                     break;
