@@ -116,7 +116,7 @@ public class MyApp
                         if(answer.equals("yes")){
                             System.out.println("=================================================");
                             continue;
-                        } else{
+                        } else if(answer.equals("no")){
                             break;
                         }
                     }
