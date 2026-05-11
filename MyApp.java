@@ -8,11 +8,13 @@
  */
 
 import java.util.Scanner;
+import java.util.InputMismatchException;
+
 public class MyApp
 {
     public static void main(String[] args){
         Scanner scan = new Scanner(System.in);
-        
+
         System.out.println("성적을 등록할 학생 수를 입력하세요."); //성적을 입력하고자 하는 학생 수 입력
         System.out.print("학생 수>>");
         int stdCount = scan.nextInt();
@@ -56,26 +58,39 @@ public class MyApp
                         AI.saveStdInfo(std);
 
                         // 과목 수만큼 반복하여 과목 정보 입력 
-                        for (int j = 1; j <= subjectCount; j++){ 
-                            System.out.println(j + "번째 과목 정보를 입력하세요.");
-                            System.out.print("과목명: ");
-                            String sjName = scan.next();
-                            System.out.print("담당교수명: ");
-                            String pfName = scan.next();
-                            System.out.print("중간점수: ");
-                            double midtermEx = scan.nextDouble();
-                            System.out.print("기말점수: ");
-                            double finalEx = scan.nextDouble();
-                            System.out.print("과제점수: ");
-                            double assign = scan.nextDouble();
-                            System.out.print("출석점수: ");
-                            double attend = scan.nextDouble();
+                        for (int j = 1; j <= subjectCount; j++){
+                            boolean examine = false;
+                            while(!examine){
+                                try{
+                                    System.out.println(j + "번째 과목 정보를 입력하세요.");
+                                    System.out.print("과목명: ");
+                                    String sjName = scan.next();
+                                    System.out.print("담당교수명: ");
+                                    String pfName = scan.next();
+                                    System.out.print("중간점수: ");
+                                    double midtermEx = scan.nextDouble();
+                                    System.out.print("기말점수: ");
+                                    double finalEx = scan.nextDouble();
+                                    System.out.print("과제점수: ");
+                                    double assign = scan.nextDouble();
+                                    System.out.print("출석점수: ");
+                                    double attend = scan.nextDouble();
+                                    if(midtermEx < 0 || finalEx < 0 || assign < 0 || attend < 0){
+                                        System.out.println("점수를 다시 입력하세요.");
+                                        continue;
+                                    }
 
-                            // 입력받은 과목 정보를 기반으로 Subject 객체 생성
-                            Subject subject = new Subject(sjName, pfName, midtermEx, finalEx, assign, attend);
+                                    // 입력받은 과목 정보를 기반으로 Subject 객체 생성
+                                    Subject subject = new Subject(sjName, pfName, midtermEx, finalEx, assign, attend);
 
-                            // 생성된 Subject 객체를 Student 배열에 저장
-                            std.saveSubject(subject);
+                                    // 생성된 Subject 객체를 Student 배열에 저장
+                                    std.saveSubject(subject);
+                                    examine = true;
+                                }catch(InputMismatchException e){
+                                    System.out.println("숫자로 입력하세요.");
+                                    scan.nextLine();
+                                }
+                            }
                         }
                     }
                     break;
