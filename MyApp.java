@@ -94,7 +94,7 @@ public class MyApp
                                 scan.nextLine();
                                 j--;
                             }finally{
-                                System.out.println("---------------------------------");
+                                System.out.println("=================================================");
                             }
                         }
                     }
