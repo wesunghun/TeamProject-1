@@ -5,6 +5,13 @@
  * @author Team#9_(2023320024 위성훈, 2023320045 김동균, 2023320017 정윤재, 2023320002 노승렬)
  * @version (2026.05.10.)
  */
+
+/**
+ * Subject 클래스 - 과목의 성적 정보를 저장하고 관리하는 클래스
+ * 과목 객체 클래스
+ * @author Team#9_(2023320024 위성훈, 2023320045 김동균, 2023320017 정윤재, 2023320002 노승렬)
+ * @version (2026.05.10.)
+ */
 public class Subject
 {
     // 인스턴스 변수 - 다음의 예제를 사용자에 맞게 변경하세요.
@@ -36,7 +43,7 @@ public class Subject
      */
     public String getSubjectName()
     {
-        return sjName; // 과목명 반환
+        return sjName;
     }
 
     /**
@@ -45,7 +52,7 @@ public class Subject
      * @return    중간, 기말, 과제, 출석 점수의 합
      */
     public double calculateTotal(){
-        return midtermEx + finalEx + assignment + attend; // 과목의 총 점수 반환
+        return midtermEx + finalEx + assignment + attend;
     }
 
     /**
@@ -54,22 +61,10 @@ public class Subject
      * @return    과목 등급
      */
     public String getGrade()
-<<<<<<< HEAD
-<<<<<<< HEAD
-    {
-        double total = calculateTotal(); // total에 과목 총 점수 저장
-        if(95 <= total && total <= 100){ //total에 따른 등급 반환
-=======
-=======
->>>>>>> 2f2653a469869fb00bb3517f5be9748deb07819b
     {   
         // 총점 계신
         double total = calculateTotal();
         if(95 <= total && total <= 100){ // 총점을 기준으로 등급 반환
-<<<<<<< HEAD
->>>>>>> 2f2653a469869fb00bb3517f5be9748deb07819b
-=======
->>>>>>> 2f2653a469869fb00bb3517f5be9748deb07819b
             return "A+";
         } else if(90 <= total && total <= 94){
             return "A0";
@@ -97,21 +92,9 @@ public class Subject
      * @return    과목 평점
      */
     public double getGPA()
-<<<<<<< HEAD
-<<<<<<< HEAD
-    {
-        String grade = getGrade(); // grade에 등급 저장
-        switch(grade){ // 등급 별 학점 평점 반환
-=======
     {   
         String grade = getGrade(); // 과목 등급 저장
         switch(grade){ // 등급 기준으로 평점 반환
->>>>>>> 2f2653a469869fb00bb3517f5be9748deb07819b
-=======
-    {   
-        String grade = getGrade(); // 과목 등급 저장
-        switch(grade){ // 등급 기준으로 평점 반환
->>>>>>> 2f2653a469869fb00bb3517f5be9748deb07819b
             case "A+":
                 return 4.5;
             case "A0":

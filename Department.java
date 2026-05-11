@@ -30,7 +30,7 @@ public class Department
     public void saveStdInfo(Student std)
     {
         if (stdCount < students.length){ 
-                // 현재 저장 된 학생 수가 배열 크기보다 작은지 확인
+            // 현재 저장 된 학생 수가 배열 크기보다 작은지 확인
             if (stdCount < students.length){
                 this.students[stdCount] = std;
                 this.stdCount++;
@@ -45,8 +45,9 @@ public class Department
          *
          * @param  stID 학번
          */
-        public void searchStdInfo(long stID)
-        {
+    }
+
+    public void searchStdInfo(long stID){
         // 저장된 학생 수만큼 반복
         // 저장된 학생 수만큼 반복
         for (int i = 0; i < stdCount; i++){
