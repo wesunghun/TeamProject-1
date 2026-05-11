@@ -9,7 +9,6 @@
 
 import java.util.Scanner;
 import java.util.InputMismatchException;
-
 public class MyApp
 {
     public static void main(String[] args){
@@ -58,38 +57,44 @@ public class MyApp
                         AI.saveStdInfo(std);
 
                         // 과목 수만큼 반복하여 과목 정보 입력 
-                        for (int j = 1; j <= subjectCount; j++){
-                            boolean examine = false;
-                            while(!examine){
-                                try{
-                                    System.out.println(j + "번째 과목 정보를 입력하세요.");
-                                    System.out.print("과목명: ");
-                                    String sjName = scan.next();
-                                    System.out.print("담당교수명: ");
-                                    String pfName = scan.next();
-                                    System.out.print("중간점수: ");
-                                    double midtermEx = scan.nextDouble();
-                                    System.out.print("기말점수: ");
-                                    double finalEx = scan.nextDouble();
-                                    System.out.print("과제점수: ");
-                                    double assign = scan.nextDouble();
-                                    System.out.print("출석점수: ");
-                                    double attend = scan.nextDouble();
-                                    if(midtermEx < 0 || finalEx < 0 || assign < 0 || attend < 0){
-                                        System.out.println("점수를 다시 입력하세요.");
-                                        continue;
-                                    }
+                        for (int j = 1; j <= subjectCount; j++){ 
+                            System.out.println(j + "번째 과목 정보를 입력하세요.");
 
-                                    // 입력받은 과목 정보를 기반으로 Subject 객체 생성
-                                    Subject subject = new Subject(sjName, pfName, midtermEx, finalEx, assign, attend);
+                            System.out.print("과목명: ");
+                            String sjName = scan.next();
 
-                                    // 생성된 Subject 객체를 Student 배열에 저장
-                                    std.saveSubject(subject);
-                                    examine = true;
-                                }catch(InputMismatchException e){
-                                    System.out.println("숫자로 입력하세요.");
-                                    scan.nextLine();
+                            System.out.print("담당교수명: ");
+                            String pfName = scan.next();
+
+                            try{
+                                System.out.print("중간점수: ");
+                                double midtermEx = scan.nextDouble();
+
+                                System.out.print("기말점수: ");
+                                double finalEx = scan.nextDouble();
+
+                                System.out.print("과제점수: ");
+                                double assign = scan.nextDouble();
+
+                                System.out.print("출석점수: ");
+                                double attend = scan.nextDouble();
+
+                                if(midtermEx < 0 || midtermEx > 100 || finalEx < 0 || finalEx > 100 || 
+                                assign < 0 || assign > 100 || attend < 0 || attend > 100){
+                                    System.out.println("점수는 0~100 사이만 입력 가능합니다.");
+                                    j--;
+                                    continue;
                                 }
+
+                                Subject subject = new Subject(sjName, pfName, midtermEx, finalEx, assign, attend);
+                                std.saveSubject(subject);
+
+                            }catch(InputMismatchException e){
+                                System.out.println("숫자만 입력 가능합니다.");
+                                scan.nextLine();
+                                j--;
+                            }finally{
+                                System.out.println("---------------------------------");
                             }
                         }
                     }
