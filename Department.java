@@ -44,21 +44,29 @@ public class Department
      * @param  stID 학번
      */
 
-    public void searchStdInfo(long stID){
-        // 저장된 학생 수만큼 반복
+    public void searchStdInfo(long stID)
+    {
+        int count = 0;
 
+        // 저장된 학생 수만큼 반복
         for (int i = 0; i < stdCount; i++){
+
             // 입력한 학번과 학생 배열의 학번 비교
             if(students[i].getStID() == stID){
-                System.out.println(students[i].getStID() + " " + students[i].getName() +
-                    "님의 학생 정보입니다."); // 학생 기본 정보 출력
+
+                System.out.println(students[i].getStID() + " 학생의 정보입니다.");
+
                 students[i].printInformation();
+
+                count++;
                 break;
-            } else if(students[i].getStID() != stID){
-                // 일치하는 학생이 없을 경우 출력
-                System.out.println("학번이 " + stID + "인 학생을 찾을 수 없습니다. 다시 입력하세요.");
             }
         }
-    }
 
+        // 학생을 찾지 못한 경우
+        if(count == 0){
+            System.out.println("학번이 " + stID +
+                "인 학생을 찾을 수 없습니다.");
+        }
+    }
 }
