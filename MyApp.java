@@ -13,7 +13,8 @@ public class MyApp
     public static void main(String[] args){
         Scanner scan = new Scanner(System.in);
         
-        System.out.println("학생 수를 입력하세요."); //성적을 입력하고자 하는 학생 수 입력 
+        System.out.println("학생 수를 입력하세요."); //성적을 입력하고자 하는 학생 수 입력
+        System.out.print("학생 수>>");
         int stdCount = scan.nextInt();
 
         Department AI = new Department(stdCount); // 입력 받은 학생 수를 기준으로 Department 객체 생성
@@ -82,6 +83,7 @@ public class MyApp
                         AI.searchStdInfo(check);
 
                         // 추가 조회 여부 확인
+                        System.out.println("=================================================");
                         System.out.print("추가 조회 하시겠습니까?(yes/no)>>");
                         String answer = scan.next();
 
