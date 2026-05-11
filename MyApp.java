@@ -17,7 +17,7 @@ public class MyApp
         Department AI = new Department(stdCount);
 
         System.out.println("=================성적 처리 프로그램=================");
-        for (int i = 0; i < stdCount; i++){ // 정보 입력
+        for (int i = 0; i < stdCount; i++){ // 학생 정보 입력
             System.out.println((i+1) + "번째 학생의 학번, 이름, 학과, 학년, 년도, 학기, 수강 과목 수를 입력하세요.");
             System.out.print("학번: ");
             long stID = scan.nextLong();
@@ -33,10 +33,11 @@ public class MyApp
             int term = scan.nextInt();
             System.out.print("과목수: ");
             int subjectCount = scan.nextInt();
-
+            
+            //학생객체 생성 및 학생 정보 저장(학과에 저장)
             Student std = new Student(stID, name, dept, grade, year, term, subjectCount);
             AI.saveStdInfo(std);
-            for (int j = 1; j <= subjectCount; j++){
+            for (int j = 1; j <= subjectCount; j++){ // 과목 정보 입력
                 System.out.println(j + "번째 과목 정보를 입력하세요.");
                 System.out.print("과목명: ");
                 String sjName = scan.next();
@@ -48,7 +49,8 @@ public class MyApp
                 double assign = scan.nextDouble();
                 System.out.print("출석점수: ");
                 double attend = scan.nextDouble();
-
+                
+                //과목 객체 생성 및 과목 정보 저장(학생에 저장)
                 Subject subject = new Subject(sjName, midtermEx, finalEx, assign, attend);
                 std.saveSubject(subject);
             }
@@ -58,7 +60,7 @@ public class MyApp
             System.out.println("조회할 학생의 학번을 입력하세요.");
             System.out.print("학번>>");
             long check = scan.nextLong();
-            AI.searchStdInfo(check);
+            AI.searchStdInfo(check); // check 변수에 저장되는 학번 값으로 학생정보 탐색
             
             System.out.print("추가 조회 하시겠습니까?(yes/no)>>");
             String answer = scan.next();

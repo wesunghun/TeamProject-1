@@ -36,7 +36,7 @@ public class Subject
      */
     public String getSubjectName()
     {
-        return sjName;
+        return sjName; // 과목명 반환
     }
 
     /**
@@ -45,7 +45,7 @@ public class Subject
      * @return    중간, 기말, 과제, 출석 점수의 합
      */
     public double calculateTotal(){
-        return midtermEx + finalEx + assignment + attend;
+        return midtermEx + finalEx + assignment + attend; // 과목의 총 점수 반환
     }
 
     /**
@@ -55,8 +55,8 @@ public class Subject
      */
     public String getGrade()
     {
-        double total = calculateTotal();
-        if(95 <= total && total <= 100){
+        double total = calculateTotal(); // total에 과목 총 점수 저장
+        if(95 <= total && total <= 100){ //total에 따른 등급 반환
             return "A+";
         } else if(90 <= total && total <= 94){
             return "A0";
@@ -85,8 +85,8 @@ public class Subject
      */
     public double getGPA()
     {
-        String grade = getGrade();
-        switch(grade){
+        String grade = getGrade(); // grade에 등급 저장
+        switch(grade){ // 등급 별 학점 평점 반환
             case "A+":
                 return 4.5;
             case "A0":

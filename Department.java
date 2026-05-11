@@ -28,7 +28,7 @@ public class Department
      */
     public void saveStdInfo(Student std)
     {
-        if (stdCount < students.length){
+        if (stdCount < students.length){ 
             this.students[stdCount] = std;
             this.stdCount++;
             System.out.println("정보가 등록되었습니다.");
@@ -44,7 +44,6 @@ public class Department
      */
     public void searchStdInfo(long stID)
     {
-        // 여기에 코드를 작성하세요
         for (int i = 0; i < stdCount; i++){
             if(students[i].getStID() == stID){
                 System.out.println(students[i].getStID() + " " + students[i].getName() +

@@ -21,7 +21,7 @@ public class Student
      * Student 클래스의 객체 생성자
      */
     public Student(long stID, String name, String dept, int grade, int year, int term, int 
-    maxSubjects)
+    maxSubjects) // 최대 과목 수 입력으로 학생 객체가 가지고 있는 과목수 입력하기
     {
         // 인스턴스 변수 초기화
         this.stID = stID;
@@ -31,7 +31,7 @@ public class Student
         this.year = year;
         this.term = term;
         this.subjects = new Subject[maxSubjects]; //과목 정보를 저장하는 배열
-        this.subjectCount = 0; 
+        this.subjectCount = 0; // 처음 과목수는 0으로 지정
     }
 
     /**
@@ -40,7 +40,7 @@ public class Student
      */
     public void saveSubject(Subject subject)
     {
-        if (subjectCount < subjects.length){
+        if (subjectCount < subjects.length){ // 과목수를 더하며 과목 배열에 과목정보 저장
             subjects[subjectCount++] = subject;
         } else{
             System.out.println("더 이상 입력할 수 없습니다.");
@@ -54,7 +54,7 @@ public class Student
      */
     public double calculateGPA()
     {
-        if (subjectCount == 0){
+        if (subjectCount == 0){ // 입력된 과목이 없는 경우
             return 0.0;
         }
 
@@ -78,7 +78,7 @@ public class Student
         System.out.println(year + "년, " + term + "학기");
         System.out.println();
 
-        for (int i = 0; i < subjectCount; i++){
+        for (int i = 0; i < subjectCount; i++){ // info변수에 배열 인덱스 별 정보 저장 및 출력
             String info = subjects[i].getSjInformation();
             System.out.println(info);
         }
