@@ -31,7 +31,11 @@ public class Student
         this.term = term;
         this.subjects = new Subject[maxSubjects]; //과목 정보를 저장하는 배열
 <<<<<<< HEAD
+<<<<<<< HEAD
         this.subjectCount = 0; // 처음 과목수는 0으로 지정
+=======
+        this.subjectCount = 0; // 저장된 과목 수를 0으로 초기화
+>>>>>>> 2f2653a469869fb00bb3517f5be9748deb07819b
 =======
         this.subjectCount = 0; // 저장된 과목 수를 0으로 초기화
 >>>>>>> 2f2653a469869fb00bb3517f5be9748deb07819b
@@ -44,8 +48,14 @@ public class Student
     public void saveSubject(Subject subject)
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         if (subjectCount < subjects.length){ // 과목수를 더하며 과목 배열에 과목정보 저장
             subjects[subjectCount++] = subject;
+=======
+        // 현재 저장된 과목 수가 배열 크기보다 작은지 확인
+        if (subjectCount < subjects.length){
+            subjects[subjectCount++] = subject; // Subject 객체 배열에 과목 객체 저장
+>>>>>>> 2f2653a469869fb00bb3517f5be9748deb07819b
 =======
         // 현재 저장된 과목 수가 배열 크기보다 작은지 확인
         if (subjectCount < subjects.length){
@@ -64,8 +74,11 @@ public class Student
     public double calculateGPA()
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         if (subjectCount == 0){ // 입력된 과목이 없는 경우
 =======
+=======
+>>>>>>> 2f2653a469869fb00bb3517f5be9748deb07819b
         // 저장된 과목이 없을 경우 0.0 반환
         if (subjectCount == 0){
 >>>>>>> 2f2653a469869fb00bb3517f5be9748deb07819b
@@ -94,10 +107,18 @@ public class Student
         System.out.println(year + "년, " + term + "학기"); // 년도 및 학기 출력
         System.out.println();
 <<<<<<< HEAD
+<<<<<<< HEAD
 
         for (int i = 0; i < subjectCount; i++){ // info변수에 배열 인덱스 별 정보 저장 및 출력
             String info = subjects[i].getSjInformation();
             System.out.println(info);
+=======
+        
+        // 저장된 과목 수만큼 반복
+        for (int i = 0; i < subjectCount; i++){
+            String info = subjects[i].getSjInformation(); // 과목별 성적 정보 반환
+            System.out.println(info); // 과목별 성적 출력
+>>>>>>> 2f2653a469869fb00bb3517f5be9748deb07819b
 =======
         
         // 저장된 과목 수만큼 반복

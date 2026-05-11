@@ -20,7 +20,12 @@ public class MyApp
 
         System.out.println("=================성적 처리 프로그램=================");
 <<<<<<< HEAD
+<<<<<<< HEAD
         for (int i = 0; i < stdCount; i++){ // 학생 정보 입력
+=======
+        // 학생 수만큼 반복하여 학생 정보 입력
+        for (int i = 0; i < stdCount; i++){ 
+>>>>>>> 2f2653a469869fb00bb3517f5be9748deb07819b
 =======
         // 학생 수만큼 반복하여 학생 정보 입력
         for (int i = 0; i < stdCount; i++){ 
@@ -42,6 +47,7 @@ public class MyApp
             int subjectCount = scan.nextInt();
             
 <<<<<<< HEAD
+<<<<<<< HEAD
             //학생객체 생성 및 학생 정보 저장(학과에 저장)
             Student std = new Student(stID, name, dept, grade, year, term, subjectCount);
 =======
@@ -50,9 +56,21 @@ public class MyApp
              
             // 생성된 Student 객체를 Department 배열에 저장
 >>>>>>> 2f2653a469869fb00bb3517f5be9748deb07819b
+=======
+            // 입력받은 학생 정보를 Student 기반으로 Student 객체 생성
+            Student std = new Student(stID, name, dept, grade, year, term, subjectCount); 
+             
+            // 생성된 Student 객체를 Department 배열에 저장
+>>>>>>> 2f2653a469869fb00bb3517f5be9748deb07819b
             AI.saveStdInfo(std);
 <<<<<<< HEAD
+<<<<<<< HEAD
             for (int j = 1; j <= subjectCount; j++){ // 과목 정보 입력
+=======
+            
+            // 과목 수만큼 반복하여 과목 정보 입력 
+            for (int j = 1; j <= subjectCount; j++){ 
+>>>>>>> 2f2653a469869fb00bb3517f5be9748deb07819b
 =======
             
             // 과목 수만큼 반복하여 과목 정보 입력 
@@ -71,7 +89,11 @@ public class MyApp
                 double attend = scan.nextDouble();
                 
 <<<<<<< HEAD
+<<<<<<< HEAD
                 //과목 객체 생성 및 과목 정보 저장(학생에 저장)
+=======
+                // 입력받은 과목 정보를 기반으로 Subject 객체 생성
+>>>>>>> 2f2653a469869fb00bb3517f5be9748deb07819b
 =======
                 // 입력받은 과목 정보를 기반으로 Subject 객체 생성
 >>>>>>> 2f2653a469869fb00bb3517f5be9748deb07819b

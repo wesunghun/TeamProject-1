@@ -55,14 +55,20 @@ public class Subject
      */
     public String getGrade()
 <<<<<<< HEAD
+<<<<<<< HEAD
     {
         double total = calculateTotal(); // total에 과목 총 점수 저장
         if(95 <= total && total <= 100){ //total에 따른 등급 반환
 =======
+=======
+>>>>>>> 2f2653a469869fb00bb3517f5be9748deb07819b
     {   
         // 총점 계신
         double total = calculateTotal();
         if(95 <= total && total <= 100){ // 총점을 기준으로 등급 반환
+<<<<<<< HEAD
+>>>>>>> 2f2653a469869fb00bb3517f5be9748deb07819b
+=======
 >>>>>>> 2f2653a469869fb00bb3517f5be9748deb07819b
             return "A+";
         } else if(90 <= total && total <= 94){
@@ -92,9 +98,15 @@ public class Subject
      */
     public double getGPA()
 <<<<<<< HEAD
+<<<<<<< HEAD
     {
         String grade = getGrade(); // grade에 등급 저장
         switch(grade){ // 등급 별 학점 평점 반환
+=======
+    {   
+        String grade = getGrade(); // 과목 등급 저장
+        switch(grade){ // 등급 기준으로 평점 반환
+>>>>>>> 2f2653a469869fb00bb3517f5be9748deb07819b
 =======
     {   
         String grade = getGrade(); // 과목 등급 저장
