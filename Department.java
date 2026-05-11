@@ -54,7 +54,7 @@ public class Department
                     "님의 학생 정보입니다."); // 학생 기본 정보 출력
                 students[i].printInformation();
                 break;
-            } else{
+            } else if(students[i].getStID() != stID){
                 // 일치하는 학생이 없을 경우 출력
                 System.out.println("학번이 " + stID + "인 학생을 찾을 수 없습니다. 다시 입력하세요.");
             }
