@@ -59,12 +59,10 @@ public class Department
                 count++;
                 break;
             }
-
-            // 학생을 찾지 못한 경우
-            if(count == 0){
+        }
+        if(count == 0){
                 System.out.println("학번이 " + stID +
                     "인 학생을 찾을 수 없습니다.");
-            }
         }
     }
 }
