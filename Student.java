@@ -95,8 +95,8 @@ public class Student
         }
         
         // 종합 성적 결과 출력
-        System.out.println("==========================================");
-        System.out.println(stID + " " + name + "님의 종합 성적을 공지하겠습니다.");
+        System.out.println("==============================================");
+        System.out.println(stID + " " + name + "님의 종합 성적은 다음과 같습니다.");
         System.out.println("과목 수 " + subjectCount + "개, 학점 평점은 " + 
             calculateGPA() + "입니다."); // 과목수 및 평균 평점 출력
     }

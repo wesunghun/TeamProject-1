@@ -29,27 +29,24 @@ public class Department
      */
     public void saveStdInfo(Student std)
     {
-        if (stdCount < students.length){ 
-            // 현재 저장 된 학생 수가 배열 크기보다 작은지 확인
-            if (stdCount < students.length){
-                this.students[stdCount] = std;
-                this.stdCount++;
-                System.out.println("정보가 등록되었습니다.");
-            } else{
-                System.out.println("더 이상 입력할 수 없습니다."); // 배열 크기를 초과할 경우 출력
-            }
+        if (stdCount < students.length){
+            students[stdCount] = std;
+            stdCount++;
+            System.out.println("정보가 등록되었습니다.");
+        } else{
+            System.out.println("더 이상 입력할 수 없습니다.");
         }
-
-        /**
-         * 학번을 이용해서 학생 정보를 조회하는 메소드
-         *
-         * @param  stID 학번
-         */
     }
+
+    /**
+     * 학번을 이용해서 학생 정보를 조회하는 메소드
+     *
+     * @param  stID 학번
+     */
 
     public void searchStdInfo(long stID){
         // 저장된 학생 수만큼 반복
-        // 저장된 학생 수만큼 반복
+
         for (int i = 0; i < stdCount; i++){
             // 입력한 학번과 학생 배열의 학번 비교
             if(students[i].getStID() == stID){
