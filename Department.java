@@ -37,16 +37,14 @@ public class Department
             System.out.println("더 이상 입력할 수 없습니다.");
         }
     }
-
+    
     /**
      * 학번을 이용해서 학생 정보를 조회하는 메소드
      *
      * @param  stID 학번
      */
-
     public void searchStdInfo(long stID){
         // 저장된 학생 수만큼 반복
-
         for (int i = 0; i < stdCount; i++){
             // 입력한 학번과 학생 배열의 학번 비교
             if(students[i].getStID() == stID){
@@ -54,7 +52,7 @@ public class Department
                     "님의 학생 정보입니다."); // 학생 기본 정보 출력
                 students[i].printInformation();
                 break;
-            } else if(students[i].getStID() != stID){
+            } else{
                 // 일치하는 학생이 없을 경우 출력
                 System.out.println("학번이 " + stID + "인 학생을 찾을 수 없습니다. 다시 입력하세요.");
             }
