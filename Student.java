@@ -82,7 +82,7 @@ public class Student
      */
     public void printInformation()
     {
-        System.out.println("=================종합 성적 공지================="); // 종합 성적 출력
+        System.out.println("=================종합 성적 공지===================="); // 종합 성적 출력
         System.out.println("이름: " + name + ", 학번: " + stID + ", 학과: " + dept + 
             ", 학년: " + grade); // 학생 기본 정보 출력
         System.out.println(year + "년, " + term + "학기"); // 년도 및 학기 출력
@@ -95,7 +95,7 @@ public class Student
         }
         
         // 종합 성적 결과 출력
-        System.out.println("==============================================");
+        System.out.println("=================================================");
         System.out.println(stID + " " + name + "님의 종합 성적은 다음과 같습니다.");
         System.out.println("과목 수 " + subjectCount + "개, 학점 평점은 " + 
             calculateGPA() + "입니다."); // 과목수 및 평균 평점 출력
