@@ -39,14 +39,13 @@ public class Department
                 System.out.println("더 이상 입력할 수 없습니다."); // 배열 크기를 초과할 경우 출력
             }
         }
-
-        /**
+    }
+    
+    /**
          * 학번을 이용해서 학생 정보를 조회하는 메소드
          *
          * @param  stID 학번
          */
-    }
-
     public void searchStdInfo(long stID){
         // 저장된 학생 수만큼 반복
         // 저장된 학생 수만큼 반복

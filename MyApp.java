@@ -45,13 +45,13 @@ public class MyApp
             int term = scan.nextInt();
             System.out.print("과목수: ");
             int subjectCount = scan.nextInt();
-            
+
             // 입력받은 학생 정보를 Student 기반으로 Student 객체 생성
             Student std = new Student(stID, name, dept, grade, year, term, subjectCount); 
-             
+
             // 생성된 Student 객체를 Department 배열에 저장
             AI.saveStdInfo(std);
-            
+
             // 과목 수만큼 반복하여 과목 정보 입력 
             for (int j = 1; j <= subjectCount; j++){ 
                 System.out.println(j + "번째 과목 정보를 입력하세요.");
@@ -65,26 +65,26 @@ public class MyApp
                 double assign = scan.nextDouble();
                 System.out.print("출석점수: ");
                 double attend = scan.nextDouble();
-                
+
                 // 입력받은 과목 정보를 기반으로 Subject 객체 생성
                 Subject subject = new Subject(sjName, midtermEx, finalEx, assign, attend);
-                
+
                 // 생성된 Subject 객체를 Student 배열에 저장
                 std.saveSubject(subject);
             }
         }
-        
+
         while(true){ // 성적 조회 
             // 조회할 학생의 학번 입력
             System.out.println("조회할 학생의 학번을 입력하세요.");
             System.out.print("학번>>");
             long check = scan.nextLong();
             AI.searchStdInfo(check);
-            
+
             // 추가 조회 여부 확인
             System.out.print("추가 조회 하시겠습니까?(yes/no)>>");
             String answer = scan.next();
-            
+
             // yes 입력 시 조회 반복
             if(answer.equals("yes")){
                 continue;
