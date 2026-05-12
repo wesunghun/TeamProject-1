@@ -61,9 +61,70 @@ public class Department
             }
         }
         if(count == 0){
-                System.out.println("학번이 " + stID +
-                    "인 학생을 찾을 수 없습니다.");
+            System.out.println("학번이 " + stID +
+                "인 학생을 찾을 수 없습니다.");
         }
     }
 
+    /**
+     * 전체 석차를 출력하는 메소드
+     * 평점(GPA) 기준 내림차순으로 모든 학생의 순위를 출력한다.
+     */
+    public void printRanking()
+    {
+        if (stdCount == 0){
+            System.out.println("등록된 학생이 없습니다.");
+            return;
+        }
+
+        System.out.println("=================================================");
+        System.out.println("                    전체 석차                    ");
+        System.out.println("=================================================");
+
+        for (int i = 1; i <= stdCount; i++){ 
+            for (int j = 0; j < stdCount; j++){ // 1위부터 StdCount위까지 순서대로 모든 학생을 순회
+                int rank = 1;
+                for (int k = 0; k < stdCount; k++){ // j번 학생보다 평점이 높은 학생 수 계산
+                    if (students[k].calculateGPA() > students[j].calculateGPA()){
+                        rank++;
+                    }
+                }
+                if (rank == i){ // 석차가 현재 순번과 일치하면 출력
+                    System.out.println(rank + "위 | " + students[j].getStID() + " | " + students[j].getName() + " | " + students[j].calculateGPA());
+                }
+            }
+        }
+        System.out.println("=================================================");
+    }
+
+    /**
+     * 특정 학생의 석차를 조회하는 메소드
+     *
+     * @param  stID 학번
+     */
+    public void searchRank(long stID)
+    {
+        // 해당 학생의 평점(GPA) 조회 (없으면 -1)
+        double myGPA = -1;
+        for (Student s : students){
+            if (s != null && s.getStID() == stID){
+                myGPA = s.calculateGPA();
+                break;
+            }
+        }
+        if (myGPA == -1){ // 학번이 존재하지 않으면 종료
+            return;
+        }
+
+        // 해당 학생보다 평점(GPA)이 높은 학생 수 + 1 = 석차
+        int rank = 1;
+        for (int i = 0; i < stdCount; i++){
+            if (students[i].calculateGPA() > myGPA){
+                rank++;
+            }
+        }
+
+        System.out.println("전체 " + stdCount + "명 중 " + rank + "위입니다.");
+        System.out.println("=================================================");
+    }
 }

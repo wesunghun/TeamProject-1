@@ -26,7 +26,8 @@ public class MyApp
             System.out.println("=================================================");
             System.out.println("[1] 학생 정보 등록");
             System.out.println("[2] 학생 성적 조회");
-            System.out.println("[3] 프로그램 종료");
+            System.out.println("[3] 전체 석차 조회");
+            System.out.println("[4] 프로그램 종료");
             System.out.println("=================================================");
             System.out.print("원하는 기능을 선택하세요.>>");
             String choice = scan.next();
@@ -100,21 +101,18 @@ public class MyApp
                     }
                     break;
                 case "2":
-                    while(true){ // 성적 조회 
-                        // 조회할 학생의 학번 입력
+                    while(true){
                         System.out.println("조회할 학생의 학번을 입력하세요.");
                         System.out.print("학번>>");
                         long check = scan.nextLong();
                         AI.searchStdInfo(check);
+                        AI.searchRank(check);
 
-                        // 추가 조회 여부 확인
                         System.out.println("=================================================");
                         System.out.print("추가 조회 하시겠습니까?(yes/no)>>");
                         String answer = scan.next();
 
-                        // yes 입력 시 조회 반복
                         if(answer.equals("yes")){
-                            System.out.println("=================================================");
                             continue;
                         } else if(answer.equals("no")){
                             break;
@@ -122,6 +120,21 @@ public class MyApp
                     }
                     break;
                 case "3":
+                    AI.printRanking();
+                    String rankAnswer;
+                    do {
+                        System.out.print("메인 화면으로 돌아가시겠습니까? (yes/no)>>");
+                        rankAnswer = scan.next();
+                        if(rankAnswer.equals("no")){
+                            System.out.println("=================================================");
+                            System.out.println("프로그램을 종료합니다.");
+                            System.exit(0);
+                        } else if(!rankAnswer.equals("yes")){
+                            System.out.println("yes 또는 no만 입력해주세요.");
+                        }
+                    } while(!rankAnswer.equals("yes"));
+                    break;
+                case "4":
                     System.out.println("=================================================");
                     System.out.println("프로그램을 종료합니다.");
                     System.exit(0);
