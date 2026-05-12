@@ -36,25 +36,77 @@ public class MyApp
                 case "1": 
                     for (int i = 0; i < stdCount; i++){ 
                         System.out.println((i+1) + "번째 학생의 학번, 이름, 학과, 학년, 년도, 학기, 수강 과목 수를 입력하세요.");
-                        System.out.print("학번: ");
-                        long stID = scan.nextLong();
+                        
+                        // 학번 입력
+                        long stID = -1;
+                        while(stID == -1){
+                            try{
+                                System.out.print("학번: ");
+                                stID = scan.nextLong();
+                                if(AI.isDuplicateID(stID) == 1){
+                                    System.out.println("이미 등록된 학번입니다. 다시 입력해주세요.");
+                                    stID = -1;
+                                }
+                            }catch(InputMismatchException e){ // 숫자가 아니면 다시 입력
+                                System.out.println("숫자만 입력 가능합니다.");
+                                scan.nextLine();
+                            }
+                        }
+
                         System.out.print("이름: ");
                         String name = scan.next();
                         System.out.print("학과: ");
                         String dept = scan.next();
-                        System.out.print("학년: ");
-                        int grade = scan.nextInt();
-                        System.out.print("년도: ");
-                        int year = scan.nextInt();
-                        System.out.print("학기: ");
-                        int term = scan.nextInt();
-                        System.out.print("과목수: ");
-                        int subjectCount = scan.nextInt();
 
-                        // 입력받은 학생 정보를 Student 기반으로 Student 객체 생성
+                        // 학년 입력
+                        int grade = -1;
+                        while(grade == -1){
+                            try{
+                                System.out.print("학년: ");
+                                grade = scan.nextInt();
+                            }catch(InputMismatchException e){ // 숫자가 아니면 다시 입력
+                                System.out.println("숫자만 입력 가능합니다.");
+                                scan.nextLine();
+                            }
+                        }
+
+                        // 년도 입력
+                        int year = -1;
+                        while(year == -1){
+                            try{
+                                System.out.print("년도: ");
+                                year = scan.nextInt();
+                            }catch(InputMismatchException e){ // 숫자가 아니면 다시 입력
+                                System.out.println("숫자만 입력 가능합니다.");
+                                scan.nextLine();
+                            }
+                        }
+
+                        // 학기 입력 
+                        int term = -1;
+                        while(term == -1){
+                            try{
+                                System.out.print("학기: ");
+                                term = scan.nextInt();
+                            }catch(InputMismatchException e){ // 숫자가 아니면 다시 입력
+                                System.out.println("숫자만 입력 가능합니다.");
+                                scan.nextLine();
+                            }
+                        }
+
+                        // 과목수 입력 
+                        int subjectCount = -1;
+                        while(subjectCount == -1){
+                            try{
+                                System.out.print("과목수: ");
+                                subjectCount = scan.nextInt();
+                            }catch(InputMismatchException e){ // 숫자가 아니면 다시 입력
+                                System.out.println("숫자만 입력 가능합니다.");
+                                scan.nextLine();
+                            }
+                        }
+
                         Student std = new Student(stID, name, dept, grade, year, term, subjectCount); 
-
-                        // 생성된 Student 객체를 Department 배열에 저장
                         AI.saveStdInfo(std);
 
                         // 과목 수만큼 반복하여 과목 정보 입력 
