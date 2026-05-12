@@ -223,7 +223,7 @@ public class MyApp
                     System.out.print("학번>>");
                     long updateID = scan.nextLong();
 
-                    int sCount = AI.getSubjectCount(updateID);
+                    int sCount = AI.getStdSubjectCount(updateID);
                     if(sCount == -1){
                         System.out.println("학번이 " + updateID + "인 학생을 찾을 수 없습니다.");
                         break;

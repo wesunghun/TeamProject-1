@@ -173,7 +173,7 @@ public class Department
      * @param stID 학번
      * @return 과목 수, 없으면 -1
      */
-    public int getSubjectCount(long stID)
+    public int getStdSubjectCount(long stID)
     {
         for (int i = 0; i < stdCount; i++){
             if (students[i].getStID() == stID){
