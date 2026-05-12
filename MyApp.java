@@ -184,19 +184,21 @@ public class MyApp
                         System.out.println("=================================================");
                         System.out.println("[1] 전체 평균 석차 조회");
                         System.out.println("[2] 과목별 석차 조회");
+                        System.out.println("[3] 석차 조회 나가기");
                         System.out.println("=================================================");
                         System.out.print("원하는 기능을 선택하세요.>>");
                         String rankChoice = scan.next();
 
                         if (rankChoice.equals("1")) {
                             System.out.println("        [전체 성적 석차 리스트(합계기준)]       ");
-                            AI.printRank();
-                        } 
-                        else if (rankChoice.equals("2")) {
+                            AI.printALLRank();
+                        } else if (rankChoice.equals("2")) {
                             System.out.print("조회할 과목명을 입력하세요>>");
                             String sjName = scan.next();
                             AI.printSubjectRank(sjName);
-                        } 
+                        } else if (rankChoice.equals("3")){
+                            break;
+                        }
                         else {
                             System.out.println("잘못된 입력입니다. 메인 메뉴로 돌아갑니다.");
                             continue;
