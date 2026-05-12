@@ -86,7 +86,7 @@ public class Department
      * 전체 석차를 출력하는 메소드
      * GPA 기준 내림차순으로 모든 학생의 순위를 출력한다.
      */
-    public void printAllRank()
+    public void printRank()
     {
         if (stdCount == 0){
             System.out.println("등록된 학생이 없습니다.");
@@ -144,11 +144,6 @@ public class Department
         System.out.println("=================================================");
     }
 
-    /**
-     * 특정 과목의 석차를 출력하는 메소드
-     *
-     * @param  subjectName(과목명)
-     */
     /**
      * 특정 학생의 과목 성적을 수정하는 메소드
      * @param stID 학번

@@ -190,7 +190,7 @@ public class MyApp
 
                         if (rankChoice.equals("1")) {
                             System.out.println("        [전체 성적 석차 리스트(합계기준)]       ");
-                            AI.printAllRank();
+                            AI.printRank();
                         } 
                         else if (rankChoice.equals("2")) {
                             System.out.print("조회할 과목명을 입력하세요>>");
