@@ -189,7 +189,7 @@ public class Department
      * @param index 과목 인덱스
      * @return 과목명
      */
-    public String getSubjectName(long stID, int index)
+    public String getStdSubjectName(long stID, int index)
     {
         for (int i = 0; i < stdCount; i++){
             if (students[i].getStID() == stID){
@@ -200,17 +200,17 @@ public class Department
     }
 
     /**
-     * 과목명으로 과목 인덱스를 반환하는 메소드
+     * 과목 인덱스를 반환하는 메소드
      * @param stID 학번
      * @param sjName 과목명
      * @return 과목 인덱스, 없으면 -1
      */
-    public int getSubjectIndexByName(long stID, String sjName)
+    public int getSubjectIndex(long stID, String sjName)
     {
         for (int i = 0; i < stdCount; i++){
             if (students[i].getStID() == stID){
                 for (int j = 0; j < students[i].getSubjectCount(); j++){
-                    if (students[i].getSubject(j).getSubjectName().equals(sjName)){
+                    if (students[i].getSubject(j).getSubjectName() == (sjName)){
                         return j;
                     }
                 }

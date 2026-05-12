@@ -231,17 +231,17 @@ public class MyApp
 
                     System.out.println("수강 과목 목록:");
                     for(int i = 0; i < sCount; i++){
-                        System.out.println((i+1) + ". " + AI.getSubjectName(updateID, i));
+                        System.out.println((i+1) + "." + AI.getStdSubjectName(updateID, i));
                     }
                     System.out.print("수정할 과목명을 입력하세요.>>");
                     String updateSjName = scan.next();
 
-                    int subjectIndex = AI.getSubjectIndexByName(updateID, updateSjName);
+                    int subjectIndex = AI.getSubjectIndex(updateID, updateSjName);
                     if(subjectIndex == -1){
                         System.out.println("해당 과목을 찾을 수 없습니다.");
                         break;
                     }
-
+                    
                     try{
                         System.out.println("수정할 점수를 입력해주세요.");
                         System.out.print("중간점수: ");

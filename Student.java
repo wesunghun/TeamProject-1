@@ -124,7 +124,7 @@ public class Student
     {
         for (Subject subject : subjects) {
             if (subject == null) break;
-            if (subject.getSubjectName().equals(sjName)) {
+            if (subject.getSubjectName() == sjName)  {
                 return subject;
             }
         }
