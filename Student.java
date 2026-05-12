@@ -135,12 +135,18 @@ public class Student
      * 과목 수를 반환하는 메소드
      * @return 과목 수
      */
-    public int getSubjectCount(){ return subjectCount; }
+    public int getSubjectCount()
+    { 
+        return subjectCount; 
+    }
 
     /**
      * 인덱스로 과목 객체를 반환하는 메소드
      * @param index 과목 인덱스
      * @return 과목 객체
      */
-    public Subject getSubject(int index){ return subjects[index]; }
+    public Subject getSubject(int index)
+    { 
+        return subjects[index]; 
+    }
 }
