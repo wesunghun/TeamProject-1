@@ -49,7 +49,7 @@ public class Student
     /**
      * 총 과목 평점을 계산하는 메소드
      *
-     * @return    총 과목 평점 / 과목수
+     * @return    총 과목 평점(GPA)
      */
     public double calculateGPA()
     {
@@ -64,8 +64,8 @@ public class Student
         for (int i = 0; i < subjectCount; i++){
             totalScore += subjects[i].getGPA(); //과목별 평점을 누적
         }
-
-        return totalScore / subjectCount; // 전체 평점을 과목 수로 나누어 평균 평점 반환
+        double GPA = totalScore / subjectCount;
+        return GPA; // 전체 평점을 과목 수로 나누어 평균 평점 반환
     }
 
     /**

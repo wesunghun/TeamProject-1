@@ -183,22 +183,23 @@ public class MyApp
                         System.out.println("=================================================");
                         System.out.println("[1] 전체 평균 석차 조회");
                         System.out.println("[2] 과목별 석차 조회");
+                        System.out.println("[3] 석차 조회에서 나가기");
                         System.out.println("=================================================");
                         System.out.print("원하는 기능을 선택하세요.>>");
                         String rankChoice = scan.next();
 
                         if (rankChoice.equals("1")) {
                             // 1번: 전체 평균 평점(GPA) 기준 석차 출력
-                            System.out.println("        [전체 성적 석차 리스트(합계기준)]       ");
-                            AI.printRank(); // 전체 석차 출력 메소드 호출
+                            AI.printAllRank(); // 전체 석차 출력 메소드 호출
                         } 
                         else if (rankChoice.equals("2")) {
                             // 2번: 특정 과목을 입력받아 해당 과목의 석차 출력
                             System.out.print("조회할 과목명을 입력하세요>>");
                             String sjName = scan.next();
                             AI.printSubjectRank(sjName); // 과목별 석차 출력 메소드 호출
-                        } 
-                        else {
+                        } else if(rankChoice.equals("3")){
+                            break;
+                        } else {
                             System.out.println("잘못된 입력입니다. 메인 메뉴로 돌아갑니다.");
                             continue;
                         }

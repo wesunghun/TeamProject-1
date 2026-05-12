@@ -86,7 +86,7 @@ public class Department
      * 전체 석차를 출력하는 메소드
      * GPA 기준 내림차순으로 모든 학생의 순위를 출력한다.
      */
-    public void printRank()
+    public void printAllRank()
     {
         if (stdCount == 0){
             System.out.println("등록된 학생이 없습니다.");
@@ -94,7 +94,7 @@ public class Department
         }
 
         System.out.println("=================================================");
-        System.out.println("                    전체 석차                    ");
+        System.out.println("                [전체 학생 석차]                   ");
         System.out.println("=================================================");
 
         for (int i = 1; i <= stdCount; i++){
@@ -145,10 +145,9 @@ public class Department
     }
 
     /**
-     * 메소드 예제 - 사용자에 맞게 주석을 바꾸십시오.
+     * 특정 과목의 석차를 출력하는 메소드
      *
-     * @param  y  메소드의 샘플 파라미터
-     * @return    x 와 y의 합
+     * @param  subjectName(과목명)
      */
     public void printSubjectRank(String subjectName) {
         Student[] attendStudents = new Student[stdCount];
@@ -177,8 +176,9 @@ public class Department
                 }
             }
         }
-
-        System.out.println("다음은 [" + subjectName + "]과목의 성적 순 석차입니다.");
+        System.out.println("=================================================");
+        System.out.println("다음은 " + subjectName + "과목의 수강 학생 석차입니다.");
+        System.out.println("=================================================");
         for (int i = 0; i < attendCount; i++) {
             Student s = attendStudents[i];
             Subject sj = s.getSubject(subjectName);
