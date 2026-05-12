@@ -29,7 +29,8 @@ public class MyApp
             System.out.println("[1] 학생 정보 등록");
             System.out.println("[2] 학생 성적 조회");
             System.out.println("[3] 석차 조회");
-            System.out.println("[4] 프로그램 종료");
+            System.out.println("[4] 학생 성적 수정");
+            System.out.println("[5] 프로그램 종료");
             System.out.println("=================================================");
             System.out.print("원하는 기능을 선택하세요.>>");
             String choice = scan.next();
@@ -166,12 +167,12 @@ public class MyApp
                         AI.searchRank(check);
 
                         System.out.println("=================================================");
-                        System.out.print("추가 조회 하시겠습니까?(yes/no)>>");
-                        String answer = scan.next();
+                        System.out.print("추가 조회 하시겠습니까?(1: 예 / 2: 아니오)>>");
+                        int answer = scan.nextInt();
 
-                        if(answer.equals("yes")){
+                        if(answer == 1){
                             continue;
-                        } else if(answer.equals("no")){
+                        } else if(answer == 2){
                             break;
                         }
                     }
@@ -188,31 +189,76 @@ public class MyApp
                         String rankChoice = scan.next();
 
                         if (rankChoice.equals("1")) {
-                            // 1번: 전체 평균 평점(GPA) 기준 석차 출력
                             System.out.println("        [전체 성적 석차 리스트(합계기준)]       ");
-                            AI.printRank(); // 전체 석차 출력 메소드 호출
+                            AI.printRank();
                         } 
                         else if (rankChoice.equals("2")) {
-                            // 2번: 특정 과목을 입력받아 해당 과목의 석차 출력
                             System.out.print("조회할 과목명을 입력하세요>>");
                             String sjName = scan.next();
-                            AI.printSubjectRank(sjName); // 과목별 석차 출력 메소드 호출
+                            AI.printSubjectRank(sjName);
                         } 
                         else {
                             System.out.println("잘못된 입력입니다. 메인 메뉴로 돌아갑니다.");
                             continue;
                         }
                         System.out.println("=================================================");
-                        System.out.print("메인 화면으로 돌아가시겠습니까?(yes/no)>>");
-                        String answer = scan.next(); 
-                        if(answer.equals("yes")){
+                        System.out.print("메인 화면으로 돌아가시겠습니까?(1: 예 / 2: 아니오)>>");
+                        int rankAnswer = scan.nextInt();
+                        if(rankAnswer == 1){
                             break;
-                        } else if(answer.equals("no")){
+                        } else if(rankAnswer == 2){
                             continue;
                         }
                     }
                     break;
                 case "4":
+                    System.out.println("수정할 학생의 학번을 입력하세요.");
+                    System.out.print("학번>>");
+                    long updateID = scan.nextLong();
+
+                    int sCount = AI.getSubjectCount(updateID);
+                    if(sCount == -1){
+                        System.out.println("학번이 " + updateID + "인 학생을 찾을 수 없습니다.");
+                        break;
+                    }
+
+                    System.out.println("수강 과목 목록:");
+                    for(int i = 0; i < sCount; i++){
+                        System.out.println((i+1) + ". " + AI.getSubjectName(updateID, i));
+                    }
+                    System.out.print("수정할 과목명을 입력하세요.>>");
+                    String updateSjName = scan.next();
+
+                    int subjectIndex = AI.getSubjectIndexByName(updateID, updateSjName);
+                    if(subjectIndex == -1){
+                        System.out.println("해당 과목을 찾을 수 없습니다.");
+                        break;
+                    }
+
+                    try{
+                        System.out.println("수정할 점수를 입력해주세요.");
+                        System.out.print("중간점수: ");
+                        double midterm = scan.nextDouble();
+                        System.out.print("기말점수: ");
+                        double finalEx = scan.nextDouble();
+                        System.out.print("과제점수: ");
+                        double assign = scan.nextDouble();
+                        System.out.print("출석점수: ");
+                        double attend = scan.nextDouble();
+
+                        if(midterm < 0 || midterm > 100 || finalEx < 0 || finalEx > 100 ||
+                        assign < 0 || assign > 100 || attend < 0 || attend > 100){
+                            System.out.println("점수는 0~100 사이만 입력 가능합니다.");
+                            break;
+                        }
+
+                        AI.updateScore(updateID, subjectIndex, midterm, finalEx, assign, attend);
+                    }catch(InputMismatchException e){
+                        System.out.println("숫자만 입력 가능합니다.");
+                        scan.nextLine();
+                    }
+                    break;
+                case "5":
                     System.out.println("=================================================");
                     System.out.println("프로그램을 종료합니다.");
                     System.exit(0);
