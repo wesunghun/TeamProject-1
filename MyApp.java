@@ -179,37 +179,42 @@ public class MyApp
                     break;
                 case "3":
                     while(true){
-                        System.out.println("=================================================");
-                        System.out.println("               [ 석차 조회 메뉴 ]                ");
-                        System.out.println("=================================================");
-                        System.out.println("[1] 전체 평균 석차 조회");
-                        System.out.println("[2] 과목별 석차 조회");
-                        System.out.println("[3] 석차 조회 나가기");
-                        System.out.println("=================================================");
-                        System.out.print("원하는 기능을 선택하세요.>>");
-                        String rankChoice = scan.next();
+                        try{
+                            System.out.println("=================================================");
+                            System.out.println("               [ 석차 조회 메뉴 ]                ");
+                            System.out.println("=================================================");
+                            System.out.println("[1] 전체 평균 석차 조회");
+                            System.out.println("[2] 과목별 석차 조회");
+                            System.out.println("[3] 석차 조회 나가기");
+                            System.out.println("=================================================");
+                            System.out.print("원하는 기능을 선택하세요.>>");
+                            int rankChoice = scan.nextInt();
 
-                        if (rankChoice.equals("1")) {
-                            System.out.println("        [전체 성적 석차 리스트(합계기준)]       ");
-                            AI.printALLRank();
-                        } else if (rankChoice.equals("2")) {
-                            System.out.print("조회할 과목명을 입력하세요>>");
-                            String sjName = scan.next();
-                            AI.printSubjectRank(sjName);
-                        } else if (rankChoice.equals("3")){
-                            break;
-                        }
-                        else {
-                            System.out.println("잘못된 입력입니다. 메인 메뉴로 돌아갑니다.");
-                            continue;
-                        }
-                        System.out.println("=================================================");
-                        System.out.print("메인 화면으로 돌아가시겠습니까?(1: 예 / 2: 아니오)>>");
-                        int rankAnswer = scan.nextInt();
-                        if(rankAnswer == 1){
-                            break;
-                        } else if(rankAnswer == 2){
-                            continue;
+                            if (rankChoice == 1) {
+                                System.out.println("        [전체 성적 석차 리스트(합계기준)]       ");
+                                AI.printALLRank();
+                            } else if (rankChoice == 2) {
+                                System.out.print("조회할 과목명을 입력하세요>>");
+                                String sjName = scan.next();
+                                AI.printSubjectRank(sjName);
+                            } else if (rankChoice == 3){
+                                break;
+                            }
+                            else {
+                                System.out.println("잘못된 입력입니다. 숫자를 입력해주세요.");
+                                scan.nextLine();
+                            }
+                            System.out.println("=================================================");
+                            System.out.print("메인 화면으로 돌아가시겠습니까?(1: 예 / 2: 아니오)>>");
+                            int rankAnswer = scan.nextInt();
+                            if(rankAnswer == 1){
+                                break;
+                            } else if(rankAnswer == 2){
+                                continue;
+                            }
+                        }catch(InputMismatchException e){
+                            System.out.println("숫자만 입력 가능합니다.");
+                            scan.nextLine();
                         }
                     }
                     break;
