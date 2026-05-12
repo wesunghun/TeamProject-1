@@ -113,4 +113,21 @@ public class Student
         // 이름 반환
         return this.name;
     }
+    
+    /**
+     * 과목 객체를 반환하는 메소드
+     *
+     * @param  
+     * @return    subject(과목객체)
+     */
+    public Subject getSubject(String sjName)
+    {
+        for (Subject subject : subjects) {
+            if (subject == null) break;
+            if (subject.getSubjectName().equals(sjName)) {
+                return subject;
+            }
+        }
+        return null; // 해당 과목을 수강하지 않은 경우
+    }
 }

@@ -77,8 +77,8 @@ public class Department
             }
         }
         if(count == 0){
-                System.out.println("학번이 " + stID +
-                    "인 학생을 찾을 수 없습니다.");
+            System.out.println("학번이 " + stID +
+                "인 학생을 찾을 수 없습니다.");
         }
     }
 
@@ -86,7 +86,7 @@ public class Department
      * 전체 석차를 출력하는 메소드
      * GPA 기준 내림차순으로 모든 학생의 순위를 출력한다.
      */
-    public void printRanking()
+    public void printRank()
     {
         if (stdCount == 0){
             System.out.println("등록된 학생이 없습니다.");
@@ -142,6 +142,49 @@ public class Department
 
         System.out.println("전체 " + stdCount + "명 중 " + rank + "위입니다.");
         System.out.println("=================================================");
+    }
+
+    /**
+     * 메소드 예제 - 사용자에 맞게 주석을 바꾸십시오.
+     *
+     * @param  y  메소드의 샘플 파라미터
+     * @return    x 와 y의 합
+     */
+    public void printSubjectRank(String subjectName) {
+        Student[] attendStudents = new Student[stdCount];
+        int attendCount = 0;
+
+        for (int i = 0; i < stdCount; i++) {
+            if (students[i].getSubject(subjectName) != null) {
+                attendStudents[attendCount++] = students[i];
+            }
+        }
+
+        if (attendCount == 0) {
+            System.out.println(subjectName + " 과목을 수강하는 학생이 없습니다.");
+            return;
+        }
+
+        for (int i = 0; i < attendCount - 1; i++) {
+            for (int j = i + 1; j < attendCount; j++) {
+                double scoreI = attendStudents[i].getSubject(subjectName).calculateTotal();
+                double scoreJ = attendStudents[j].getSubject(subjectName).calculateTotal();
+
+                if (scoreJ > scoreI) { // 뒤의 점수가 더 높으면 자리 바꿈
+                    Student temp = attendStudents[i];
+                    attendStudents[i] = attendStudents[j];
+                    attendStudents[j] = temp;
+                }
+            }
+        }
+
+        System.out.println("다음은 [" + subjectName + "]과목의 성적 순 석차입니다.");
+        for (int i = 0; i < attendCount; i++) {
+            Student s = attendStudents[i];
+            Subject sj = s.getSubject(subjectName);
+            System.out.println((i + 1) + ".\t" + s.getStID() + "\t" + s.getName() + "\t" + 
+                (int)sj.calculateTotal() + "점\t" + sj.getGrade());
+        }
     }
 
 }

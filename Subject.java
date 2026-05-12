@@ -18,7 +18,7 @@ public class Subject
      * Subject 클래스의 객체 생성자
      */
     public Subject(String sjName, String pfName ,double midtermEx, double finalEx, double assignment, 
-                                double attend)
+    double attend)
     {
         // 인스턴스 변수 초기화
         this.sjName = sjName;
@@ -118,13 +118,14 @@ public class Subject
     public String getSjInformation()
     {   // 과목별 성적 정보를 문자열 형태로 저장
         String information = sjName + " " +
-                            pfName + "교수 " +
-                            midtermEx + " " + 
-                            finalEx + " " +
-                            assignment + " " +
-                            attend + " " +
-                            calculateTotal() + "점 " +
-                            getGrade();
+            pfName + "교수 " +
+            midtermEx + " " + 
+            finalEx + " " +
+            assignment + " " +
+            attend + " " +
+            calculateTotal() + "점 " +
+            getGrade();
         return information; 
     }
+
 }

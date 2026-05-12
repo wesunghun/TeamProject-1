@@ -14,7 +14,9 @@ public class MyApp
     public static void main(String[] args){
         Scanner scan = new Scanner(System.in);
 
+        System.out.println("=================================================");
         System.out.println("성적을 등록할 학생 수를 입력하세요."); //성적을 입력하고자 하는 학생 수 입력
+        System.out.println("=================================================");
         System.out.print("학생 수>>");
         int stdCount = scan.nextInt();
 
@@ -22,11 +24,11 @@ public class MyApp
 
         while(true){
             System.out.println("=================================================");
-            System.out.println("                 성적 처리 프로그램                ");
+            System.out.println("                [성적 처리 프로그램]               ");
             System.out.println("=================================================");
             System.out.println("[1] 학생 정보 등록");
             System.out.println("[2] 학생 성적 조회");
-            System.out.println("[3] 전체 석차 조회");
+            System.out.println("[3] 석차 조회");
             System.out.println("[4] 프로그램 종료");
             System.out.println("=================================================");
             System.out.print("원하는 기능을 선택하세요.>>");
@@ -35,8 +37,9 @@ public class MyApp
             switch(choice){
                 case "1": 
                     for (int i = 0; i < stdCount; i++){ 
+                        System.out.println("=================================================");
                         System.out.println((i+1) + "번째 학생의 학번, 이름, 학과, 학년, 년도, 학기, 수강 과목 수를 입력하세요.");
-                        
+
                         // 학번 입력
                         long stID = -1;
                         while(stID == -1){
@@ -111,6 +114,7 @@ public class MyApp
 
                         // 과목 수만큼 반복하여 과목 정보 입력 
                         for (int j = 1; j <= subjectCount; j++){ 
+                            System.out.println("=================================================");
                             System.out.println(j + "번째 과목 정보를 입력하세요.");
 
                             System.out.print("과목명: ");
@@ -154,6 +158,7 @@ public class MyApp
                     break;
                 case "2":
                     while(true){
+                        System.out.println("=================================================");
                         System.out.println("조회할 학생의 학번을 입력하세요.");
                         System.out.print("학번>>");
                         long check = scan.nextLong();
@@ -172,19 +177,40 @@ public class MyApp
                     }
                     break;
                 case "3":
-                    AI.printRanking();
-                    String rankAnswer;
-                    do {
-                        System.out.print("메인 화면으로 돌아가시겠습니까? (yes/no)>>");
-                        rankAnswer = scan.next();
-                        if(rankAnswer.equals("no")){
-                            System.out.println("=================================================");
-                            System.out.println("프로그램을 종료합니다.");
-                            System.exit(0);
-                        } else if(!rankAnswer.equals("yes")){
-                            System.out.println("yes 또는 no만 입력해주세요.");
+                    while(true){
+                        System.out.println("=================================================");
+                        System.out.println("               [ 석차 조회 메뉴 ]                ");
+                        System.out.println("=================================================");
+                        System.out.println("[1] 전체 평균 석차 조회");
+                        System.out.println("[2] 과목별 석차 조회");
+                        System.out.println("=================================================");
+                        System.out.print("원하는 기능을 선택하세요.>>");
+                        String rankChoice = scan.next();
+
+                        if (rankChoice.equals("1")) {
+                            // 1번: 전체 평균 평점(GPA) 기준 석차 출력
+                            System.out.println("        [전체 성적 석차 리스트(합계기준)]       ");
+                            AI.printRank(); // 전체 석차 출력 메소드 호출
+                        } 
+                        else if (rankChoice.equals("2")) {
+                            // 2번: 특정 과목을 입력받아 해당 과목의 석차 출력
+                            System.out.print("조회할 과목명을 입력하세요>>");
+                            String sjName = scan.next();
+                            AI.printSubjectRank(sjName); // 과목별 석차 출력 메소드 호출
+                        } 
+                        else {
+                            System.out.println("잘못된 입력입니다. 메인 메뉴로 돌아갑니다.");
+                            continue;
                         }
-                    } while(!rankAnswer.equals("yes"));
+                        System.out.println("=================================================");
+                        System.out.print("메인 화면으로 돌아가시겠습니까?(yes/no)>>");
+                        String answer = scan.next(); 
+                        if(answer.equals("yes")){
+                            break;
+                        } else if(answer.equals("no")){
+                            continue;
+                        }
+                    }
                     break;
                 case "4":
                     System.out.println("=================================================");
@@ -192,6 +218,7 @@ public class MyApp
                     System.exit(0);
                     break;
                 default:
+                    System.out.println("=================================================");
                     System.out.println("잘못된 번호입니다. 다시 입력해주세요.");
             }
         }
