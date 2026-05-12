@@ -149,6 +149,81 @@ public class Department
      *
      * @param  subjectName(과목명)
      */
+    /**
+     * 특정 학생의 과목 성적을 수정하는 메소드
+     * @param stID 학번
+     * @param subjectIndex 과목 인덱스
+     * @param midterm 중간점수
+     * @param finalEx 기말점수
+     * @param assign 과제점수
+     * @param attend 출석점수
+     */
+    public void updateScore(long stID, int subjectIndex, double midterm, double finalEx, double assign, double attend)
+    {
+        for (int i = 0; i < stdCount; i++){
+            if (students[i].getStID() == stID){
+                students[i].getSubject(subjectIndex).setMidtermEx(midterm);
+                students[i].getSubject(subjectIndex).setFinalEx(finalEx);
+                students[i].getSubject(subjectIndex).setAssignment(assign);
+                students[i].getSubject(subjectIndex).setAttend(attend);
+                System.out.println("성적이 수정되었습니다.");
+                return;
+            }
+        }
+        System.out.println("학번이 " + stID + "인 학생을 찾을 수 없습니다.");
+    }
+
+    /**
+     * 특정 학생의 과목 수를 반환하는 메소드
+     * @param stID 학번
+     * @return 과목 수, 없으면 -1
+     */
+    public int getSubjectCount(long stID)
+    {
+        for (int i = 0; i < stdCount; i++){
+            if (students[i].getStID() == stID){
+                return students[i].getSubjectCount();
+            }
+        }
+        return -1;
+    }
+
+    /**
+     * 특정 학생의 과목명을 반환하는 메소드
+     * @param stID 학번
+     * @param index 과목 인덱스
+     * @return 과목명
+     */
+    public String getSubjectName(long stID, int index)
+    {
+        for (int i = 0; i < stdCount; i++){
+            if (students[i].getStID() == stID){
+                return students[i].getSubject(index).getSubjectName();
+            }
+        }
+        return null;
+    }
+
+    /**
+     * 과목명으로 과목 인덱스를 반환하는 메소드
+     * @param stID 학번
+     * @param sjName 과목명
+     * @return 과목 인덱스, 없으면 -1
+     */
+    public int getSubjectIndexByName(long stID, String sjName)
+    {
+        for (int i = 0; i < stdCount; i++){
+            if (students[i].getStID() == stID){
+                for (int j = 0; j < students[i].getSubjectCount(); j++){
+                    if (students[i].getSubject(j).getSubjectName().equals(sjName)){
+                        return j;
+                    }
+                }
+            }
+        }
+        return -1;
+    }
+
     public void printSubjectRank(String subjectName) {
         Student[] attendStudents = new Student[stdCount];
         int attendCount = 0;

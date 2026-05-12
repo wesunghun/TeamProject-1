@@ -111,6 +111,42 @@ public class Subject
     }
 
     /**
+     * 중간점수를 수정하는 메소드
+     * @param midtermEx 중간점수
+     */
+    public void setMidtermEx(double midtermEx)
+    { 
+        this.midtermEx = midtermEx; 
+    }
+
+    /**
+     * 기말점수를 수정하는 메소드
+     * @param finalEx 기말점수
+     */
+    public void setFinalEx(double finalEx)
+    { 
+        this.finalEx = finalEx; 
+    }
+
+    /**
+     * 과제점수를 수정하는 메소드
+     * @param assignment 과제점수
+     */
+    public void setAssignment(double assignment)
+    { 
+        this.assignment = assignment; 
+    }
+
+    /**
+     * 출석점수를 수정하는 메소드
+     * @param attend 출석점수
+     */
+    public void setAttend(double attend)
+    { 
+        this.attend = attend; 
+    }
+
+    /**
      * 과목의 정보를 반환하는 메소드
      *
      * @return   과목 정보
