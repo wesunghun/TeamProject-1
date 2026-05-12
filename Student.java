@@ -123,7 +123,9 @@ public class Student
     public Subject getSubject(String sjName)
     {
         for (Subject subject : subjects) {
-            if (subject == null) break;
+            if (subject == null){
+                break;
+            }
             if (subject.getSubjectName() == sjName)  {
                 return subject;
             }
