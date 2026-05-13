@@ -281,7 +281,8 @@ public class MyApp {
         System.out.println("=================================================");
         System.out.println("성적을 등록할 학생 수를 입력하세요.");
         System.out.println("=================================================");
-
+        System.out.print("학생 수>>");
+        
         int stdCount = getSafeInt();
         Department AI = new Department(stdCount);
 
