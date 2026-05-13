@@ -209,16 +209,16 @@ public class Department
             System.out.println("등록된 학생이 없습니다.");
             return 0;
         }
-        int count = students[0].getSjCount();
+        int sjcount = students[0].getSjCount();
         System.out.print("과목 목록: ");
-        for (int i = 0; i < count; i++) {
+        for (int i = 0; i < sjcount; i++) {
             System.out.print("[" + (i + 1) + "] " + students[0].getSubject(i).getSubjectName());
-            if (i < count - 1) {
+            if (i < sjcount - 1) {
                 System.out.print(" | ");
             }
         }
         System.out.println();
-        return count;
+        return sjcount;
     }
 
     /**
