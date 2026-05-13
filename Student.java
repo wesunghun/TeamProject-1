@@ -33,8 +33,10 @@ public class Student
     }
 
     /**
-     *과목 각각을 배열에 저장하는 메소드
+     * 과목 각각을 배열에 저장하는 메소드
+     *
      * @param  subject 과목 객체
+     * 
      */
     public void saveSubject(Subject subject)
     {
@@ -59,7 +61,7 @@ public class Student
         }
 
         double totalScore = 0.0; //전체 평점
-        
+
         // 저장된 과목 수만큼 반복
         for (int i = 0; i < subjectCount; i++){
             totalScore += subjects[i].getGPA(); //과목별 평점을 누적
@@ -79,13 +81,13 @@ public class Student
             ", 학년: " + grade); // 학생 기본 정보 출력
         System.out.println(year + "년, " + term + "학기"); // 년도 및 학기 출력
         System.out.println();
-        
+
         // 저장된 과목 수만큼 반복
         for (int i = 0; i < subjectCount; i++){
             String info = subjects[i].getSjInformation(); // 과목별 성적 정보 반환
             System.out.println(info); // 과목별 성적 출력
         }
-        
+
         // 종합 성적 결과 출력
         System.out.println("=================================================");
         System.out.println(stID + " " + name + "님의 종합 성적은 다음과 같습니다.");
@@ -113,20 +115,20 @@ public class Student
         // 이름 반환
         return this.name;
     }
-    
+
     /**
      * 과목 객체를 반환하는 메소드
      *
-     * @param  
-     * @return    subject(과목객체)
+     * @param  sjName 과목명
+     * @return    subject 과목객체
      */
     public Subject getSubject(String sjName)
     {
-        for (Subject subject : subjects) {
+        for (Subject subject : subjects){
             if (subject == null){
                 break;
             }
-            if (subject.getSubjectName() == sjName)  {
+            if (subject.getSubjectName() == sjName){
                 return subject;
             }
         }
@@ -135,7 +137,8 @@ public class Student
 
     /**
      * 과목 수를 반환하는 메소드
-     * @return 과목 수
+     * 
+     * @return    과목 수 
      */
     public int getSubjectCount()
     { 
