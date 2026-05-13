@@ -81,12 +81,14 @@ public class MyApp {
 
             System.out.println("추가 조회 하시겠습니까? ([1] 예 / [2] 아니요)");
             int answerSearch = getSafeInt();
-            if (answerSearch == 2){
-                break;   
-            } else{
+            if (answerSearch == 1){
                 continue;
+            } else if (answerSearch == 2){
+                break;
+            } else{
+                System.out.println("올바른 번호를 입력하세요.");
             }
-        }
+        } 
     }
 
     /**
@@ -94,6 +96,7 @@ public class MyApp {
      *
      * @param  AI
      */
+
     private static void manageRankMenu(Department AI)
     {
         Scanner scan = new Scanner(System.in);
@@ -282,7 +285,7 @@ public class MyApp {
         System.out.println("성적을 등록할 학생 수를 입력하세요.");
         System.out.println("=================================================");
         System.out.print("학생 수>>");
-        
+
         int stdCount = getSafeInt();
         Department AI = new Department(stdCount);
 
