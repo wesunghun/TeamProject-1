@@ -117,7 +117,7 @@ public class MyApp {
                 case 2:
                     int subjectCount = AI.printSubjectList();
                     if (subjectCount == 0){
-                    break; 
+                        break; 
                     }
                     System.out.print("조회할 과목 번호>>");
                     int subjectNum = getSafeInt();
@@ -130,13 +130,17 @@ public class MyApp {
                 case 3:
                     return;
             }
-            System.out.println("석차 조회를 계속 이용하시겠습니까? ([1] 예 / [2] 아니요)");
-            System.out.print(">>");
-            int answerContinue = getSafeInt();
-            if (answerContinue == 2){
-                break;
-            } else{
-                continue;
+            while (true) {
+                System.out.println("석차 조회를 계속 이용하시겠습니까? ([1] 예 / [2] 아니요)");
+                System.out.print(">>");
+                int answerContinue = getSafeInt();
+                if (answerContinue == 1){
+                    break;
+                } else if (answerContinue == 2){
+                    return;
+                } else{
+                    System.out.println("올바른 번호를 입력하세요.");
+                }
             }
         }
     }
