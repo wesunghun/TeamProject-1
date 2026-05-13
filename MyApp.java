@@ -111,9 +111,11 @@ public class MyApp {
                 case 1:
                     System.out.println("        [전체 성적 석차 리스트(합계기준)]       ");
                 AI.printALLRank();
+                    break;
                 case 2:
                     System.out.print("조회할 과목명>>");
                 AI.printSubjectRank(scan.next());
+                    break;
                 case 3:
                     break;
             }
