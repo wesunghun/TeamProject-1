@@ -108,7 +108,6 @@ public class MyApp {
             System.out.println("[2] 과목별 석차 조회");
             System.out.println("[3] 석차 조회 나가기");
             System.out.print("선택>>");
-
             int choice = scan.nextInt();
             switch(choice){
                 case 1:
@@ -116,13 +115,21 @@ public class MyApp {
                     AI.printALLRank();
                     break;
                 case 2:
-                    System.out.print("조회할 과목명>>");
-                    AI.printSubjectRank(scan.next());
+                    int subjectCount = AI.printSubjectList();
+                    if (subjectCount == 0){
+                    break; 
+                    }
+                    System.out.print("조회할 과목 번호>>");
+                    int subjectNum = getSafeInt();
+                    if (subjectNum < 1 || subjectNum > subjectCount) {
+                        System.out.println("올바른 과목 번호를 입력하세요.");
+                        break;
+                    }
+                    AI.printSubjectRank(subjectNum);
                     break;
                 case 3:
-                    break;
+                    return;
             }
-
             System.out.println("석차 조회를 계속 이용하시겠습니까? ([1] 예 / [2] 아니요)");
             System.out.print(">>");
             int answerContinue = getSafeInt();
@@ -243,7 +250,7 @@ public class MyApp {
                 int input = scan.nextInt();
                 return input;
             } catch (InputMismatchException e){
-                System.out.println("과목 번호를 입력해주세요.");
+                System.out.println("숫자를 입력해주세요.");
                 scan.nextLine();
             }
         }

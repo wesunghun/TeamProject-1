@@ -132,7 +132,7 @@ public class Department
             return;
         }
 
-        // 나보다 GPA가 높은 학생 수 + 1 = 석차
+        // 자신보다 GPA가 높은 학생 수 + 1 = 석차
         int rank = 1;
         for (int i = 0; i < stdCount; i++){
             if (students[i].calculateGPA() > myGPA){
@@ -199,41 +199,72 @@ public class Department
         return null;
     }
 
-    public void printSubjectRank(String subjectName) 
+    /**
+     * 과목 목록을 출력하고 과목 수를 반환하는 메소드 
+     * @return 과목 수
+     */
+    public int printSubjectList()
     {
+        if (stdCount == 0) {
+            System.out.println("등록된 학생이 없습니다.");
+            return 0;
+        }
+        int count = students[0].getSubjectCount();
+        System.out.print("과목 목록: ");
+        for (int i = 0; i < count; i++) {
+            System.out.print("[" + (i + 1) + "] " + students[0].getSubject(i).getSubjectName());
+            if (i < count - 1) {
+                System.out.print(" | ");
+            }
+        }
+        System.out.println();
+        return count;
+    }
+
+    /**
+     * 과목 번호로 과목별 석차를 출력하는 메소드
+     *
+     * @param subjectIndex 과목 번호
+     */
+    public void printSubjectRank(int subjectIndex)
+    {
+        int idx = subjectIndex - 1;
+
         Student[] attendStudents = new Student[stdCount];
         int attendCount = 0;
 
         for (int i = 0; i < stdCount; i++) {
-            if (students[i].getSubject(subjectName) != null) {
+            if (idx < students[i].getSubjectCount()) {
                 attendStudents[attendCount++] = students[i];
             }
         }
 
         if (attendCount == 0) {
-            System.out.println(subjectName + " 과목을 수강하는 학생이 없습니다.");
+            System.out.println(subjectIndex + "번 과목을 수강하는 학생이 없습니다.");
             return;
         }
 
+        String subjectName = attendStudents[0].getSubject(idx).getSubjectName();
+
         for (int i = 0; i < attendCount - 1; i++) {
             for (int j = i + 1; j < attendCount; j++) {
-                double scoreI = attendStudents[i].getSubject(subjectName).calculateTotal();
-                double scoreJ = attendStudents[j].getSubject(subjectName).calculateTotal();
-
-                if (scoreJ > scoreI) { // 뒤의 점수가 더 높으면 자리 바꿈
+                double scoreI = attendStudents[i].getSubject(idx).calculateTotal();
+                double scoreJ = attendStudents[j].getSubject(idx).calculateTotal();
+                if (scoreJ > scoreI) {
                     Student temp = attendStudents[i];
                     attendStudents[i] = attendStudents[j];
                     attendStudents[j] = temp;
                 }
             }
         }
+
         System.out.println("=================================================");
-        System.out.println("다음은 " + subjectName + "과목의 수강 학생 석차입니다.");
+        System.out.println("다음은 " + subjectName + "의 수강 학생 석차입니다.");
         System.out.println("=================================================");
         for (int i = 0; i < attendCount; i++) {
             Student s = attendStudents[i];
-            Subject sj = s.getSubject(subjectName);
-            System.out.println((i + 1) + ".\t" + s.getStID() + "\t" + s.getName() + "\t" + 
+            Subject sj = s.getSubject(idx);
+            System.out.println((i + 1) + "위.\t" + s.getStID() + "\t" + s.getName() + "\t" +
                 (int)sj.calculateTotal() + "점\t" + sj.getGrade());
         }
     }
