@@ -11,13 +11,13 @@ public class Subject
     private String pfName; //담당 교수명
     private double midtermEx; //중간점수
     private double finalEx; //기말점수
-    private double assignment; //과제점수
+    private double assign; //과제점수
     private double attend; //출석점수
 
     /**
      * Subject 클래스의 객체 생성자
      */
-    public Subject(String sjName, String pfName, double midtermEx, double finalEx, double assignment, 
+    public Subject(String sjName, String pfName, double midtermEx, double finalEx, double assign, 
     double attend)
     {
         // 인스턴스 변수 초기화
@@ -25,7 +25,7 @@ public class Subject
         this.pfName = pfName;
         this.midtermEx = midtermEx;
         this.finalEx = finalEx;
-        this.assignment = assignment;
+        this.assign = assign;
         this.attend = attend;
     }
 
@@ -46,7 +46,7 @@ public class Subject
      */
     public double calculateTotal()
     {
-        return midtermEx + finalEx + assignment + attend;
+        return midtermEx + finalEx + assign + attend;
     }
 
     /**
@@ -134,9 +134,9 @@ public class Subject
      * 
      * @param assignment 과제점수
      */
-    public void setAssignEx(double assignment)
+    public void setAssignEx(double assign)
     { 
-        this.assignment = assignment; 
+        this.assign = assign; 
     }
 
     /**
@@ -160,7 +160,7 @@ public class Subject
             pfName + "교수 " +
             midtermEx + " " + 
             finalEx + " " +
-            assignment + " " +
+            assign + " " +
             attend + " " +
             calculateTotal() + "점 " +
             getGrade();

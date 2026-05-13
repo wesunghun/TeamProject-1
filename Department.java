@@ -153,11 +153,11 @@ public class Department
      * @param  assign 과제점수
      * @param  attend 출석점수
      */
-    public void updateScore(long stID, int subjectIndex, double midterm, double finalEx, double assign, double attend)
+    public void updateScore(long stID, int subjectIndex, double midtermEx, double finalEx, double assign, double attend)
     {
         for (int i = 0; i < stdCount; i++){
             if (students[i].getStID() == stID){
-                students[i].getSubject(subjectIndex).setMidtermEx(midterm);
+                students[i].getSubject(subjectIndex).setMidtermEx(midtermEx);
                 students[i].getSubject(subjectIndex).setFinalEx(finalEx);
                 students[i].getSubject(subjectIndex).setAssignEx(assign);
                 students[i].getSubject(subjectIndex).setAttendEx(attend);
