@@ -149,17 +149,18 @@ public class MyApp {
 
         System.out.println("수강 과목 목록 입니다.");
         for (int i = 0; i < stdCount; i++){
-            System.out.println((i + 1) + ". " + AI.getStdSubjectName(updateID, i));
+            System.out.println("[" + (i + 1) + "] " + AI.getStdSubjectName(updateID, i));
         }
 
-        System.out.print("수정할 과목명>>");
-        String updateSjName = scan.next();
-        int subjectIndex = AI.getSubjectIndex(updateID, updateSjName);
+        System.out.print("수정할 과목 번호>>");
+        int subjectNum = getSafeInt();
 
-        if (subjectIndex == -1){
-            System.out.println("해당 과목을 찾을 수 없습니다.");
+        if (subjectNum < 1 || subjectNum > stdCount){
+            System.out.println("올바른 과목 번호를 입력하세요.");
             return;
         }
+
+        int subjectIndex = subjectNum - 1;
         
         System.out.print("중간점수: ");
         double midtermEx = getSafeDouble();
@@ -171,7 +172,6 @@ public class MyApp {
         double attendEx = getSafeDouble();
 
         AI.updateScore(updateID, subjectIndex, midtermEx, finalEx, assignEx, attendEx);
-        System.out.println("성적이 수정되었습니다.");
     }
 
     /**
@@ -238,7 +238,7 @@ public class MyApp {
                 int input = scan.nextInt();
                 return input;
             } catch (InputMismatchException e){
-                System.out.println("정수를 입력하세요.");
+                System.out.println("과목 번호를 입략해주세요.");
                 scan.nextLine();
             }
         }

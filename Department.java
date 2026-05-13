@@ -199,26 +199,6 @@ public class Department
         return null;
     }
 
-    /**
-     * 과목 인덱스를 반환하는 메소드
-     * @param stID 학번
-     * @param sjName 과목명
-     * @return 과목 인덱스, 없으면 -1
-     */
-    public int getSubjectIndex(long stID, String sjName)
-    {
-        for (int i = 0; i < stdCount; i++){
-            if (students[i].getStID() == stID){
-                for (int j = 0; j < students[i].getSubjectCount(); j++){
-                    if (students[i].getSubject(j).getSubjectName() == (sjName)){
-                        return j;
-                    }
-                }
-            }
-        }
-        return -1;
-    }
-
     public void printSubjectRank(String subjectName) {
         Student[] attendStudents = new Student[stdCount];
         int attendCount = 0;
