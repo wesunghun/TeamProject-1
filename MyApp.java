@@ -205,7 +205,8 @@ public class MyApp {
      *
      * @param  std, index
      */
-    private static void inputSjInfo(Student std, int index) {
+    private static void inputSjInfo(Student std, int index)
+    {
         Scanner scan = new Scanner(System.in);
 
         System.out.println(index + "번째 과목명/교수명/중간점수/기말점수/과제점수/출석점수 입력");
@@ -274,7 +275,8 @@ public class MyApp {
         System.exit(0);
     }
 
-    public static void main(String[] args){
+    public static void main(String[] args)
+    {
         Scanner scan = new Scanner(System.in);
         System.out.println("=================================================");
         System.out.println("성적을 등록할 학생 수를 입력하세요.");
