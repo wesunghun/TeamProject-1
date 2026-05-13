@@ -86,7 +86,7 @@ public class Department
      * 전체 석차를 출력하는 메소드
      * GPA 기준 내림차순으로 모든 학생의 순위를 출력한다.
      */
-    public void printALLRank()
+    public void printAllRank()
     {
         if (stdCount == 0){
             System.out.println("등록된 학생이 없습니다.");
@@ -159,8 +159,8 @@ public class Department
             if (students[i].getStID() == stID){
                 students[i].getSubject(subjectIndex).setMidtermEx(midterm);
                 students[i].getSubject(subjectIndex).setFinalEx(finalEx);
-                students[i].getSubject(subjectIndex).setAssignment(assign);
-                students[i].getSubject(subjectIndex).setAttend(attend);
+                students[i].getSubject(subjectIndex).setAssignEx(assign);
+                students[i].getSubject(subjectIndex).setAttendEx(attend);
                 System.out.println("성적이 수정되었습니다.");
                 return;
             }
@@ -173,11 +173,11 @@ public class Department
      * @param stID 학번
      * @return 과목 수, 없으면 -1
      */
-    public int getStdSubjectCount(long stID)
+    public int getStdSjCount(long stID)
     {
         for (int i = 0; i < stdCount; i++){
             if (students[i].getStID() == stID){
-                return students[i].getSubjectCount();
+                return students[i].getSjCount();
             }
         }
         return -1;
@@ -189,7 +189,7 @@ public class Department
      * @param  index 과목 인덱스
      * @return    과목명
      */
-    public String getStdSubjectName(long stID, int index)
+    public String getStdSjName(long stID, int index)
     {
         for (int i = 0; i < stdCount; i++){
             if (students[i].getStID() == stID){
@@ -203,13 +203,13 @@ public class Department
      * 과목 목록을 출력하고 과목 수를 반환하는 메소드 
      * @return 과목 수
      */
-    public int printSubjectList()
+    public int printSjList()
     {
         if (stdCount == 0) {
             System.out.println("등록된 학생이 없습니다.");
             return 0;
         }
-        int count = students[0].getSubjectCount();
+        int count = students[0].getSjCount();
         System.out.print("과목 목록: ");
         for (int i = 0; i < count; i++) {
             System.out.print("[" + (i + 1) + "] " + students[0].getSubject(i).getSubjectName());
@@ -226,7 +226,7 @@ public class Department
      *
      * @param subjectIndex 과목 번호
      */
-    public void printSubjectRank(int subjectIndex)
+    public void printSjRank(int subjectIndex)
     {
         int idx = subjectIndex - 1;
 
@@ -234,7 +234,7 @@ public class Department
         int attendCount = 0;
 
         for (int i = 0; i < stdCount; i++) {
-            if (idx < students[i].getSubjectCount()) {
+            if (idx < students[i].getSjCount()) {
                 attendStudents[attendCount++] = students[i];
             }
         }

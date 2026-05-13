@@ -139,7 +139,7 @@ public class Student
      * 
      * @return    과목 수 
      */
-    public int getSubjectCount()
+    public int getSjCount()
     {
         return subjectCount; 
     }

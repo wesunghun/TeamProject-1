@@ -31,7 +31,7 @@ public class MyApp {
      *
      * @param  AI, stdCount
      */
-    private static void InputStdInfo(Department AI, int stdCount)
+    private static void inputStdInfo(Department AI, int stdCount)
     {
         Scanner scan = new Scanner(System.in);
         for (int i = 0; i < stdCount; i++){
@@ -112,10 +112,10 @@ public class MyApp {
             switch(choice){
                 case 1:
                     System.out.println("        [전체 성적 석차 리스트(합계기준)]       ");
-                    AI.printALLRank();
+                    AI.printAllRank();
                     break;
                 case 2:
-                    int subjectCount = AI.printSubjectList();
+                    int subjectCount = AI.printSjList();
                     if (subjectCount == 0){
                         break; 
                     }
@@ -125,7 +125,7 @@ public class MyApp {
                         System.out.println("올바른 과목 번호를 입력하세요.");
                         break;
                     }
-                    AI.printSubjectRank(subjectNum);
+                    AI.printSjRank(subjectNum);
                     break;
                 case 3:
                     return;
@@ -156,7 +156,7 @@ public class MyApp {
         System.out.print("수정할 학생의 학번>>");
         long updateID = scan.nextLong();
 
-        int stdCount = AI.getStdSubjectCount(updateID);
+        int stdCount = AI.getStdSjCount(updateID);
         if (stdCount == -1){
             System.out.println("해당 학생을 찾을 수 없습니다.");
             return;
@@ -164,7 +164,7 @@ public class MyApp {
 
         System.out.println("수강 과목 목록 입니다.");
         for (int i = 0; i < stdCount; i++){
-            System.out.println("[" + (i + 1) + "] " + AI.getStdSubjectName(updateID, i));
+            System.out.println("[" + (i + 1) + "] " + AI.getStdSjName(updateID, i));
         }
 
         System.out.print("수정할 과목 번호>>");
@@ -307,7 +307,7 @@ public class MyApp {
 
             switch (choice){
                 case "1":
-                    InputStdInfo(AI, stdCount);
+                    inputStdInfo(AI, stdCount);
                     break;
                 case "2":
                     searchStdGrade(AI);
