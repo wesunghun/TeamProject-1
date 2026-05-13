@@ -78,7 +78,7 @@ public class MyApp {
             long check = scan.nextLong();
             AI.searchStdInfo(check);
             AI.searchRank(check);
-            
+
             System.out.println("추가 조회 하시겠습니까? ([1] 예 / [2] 아니요)");
             int answerSearch = getSafeInt();
             if (answerSearch == 2){
@@ -110,17 +110,16 @@ public class MyApp {
             switch(choice){
                 case 1:
                     System.out.println("        [전체 성적 석차 리스트(합계기준)]       ");
-                AI.printALLRank();
+                    AI.printALLRank();
                     break;
                 case 2:
                     System.out.print("조회할 과목명>>");
-                AI.printSubjectRank(scan.next());
+                    AI.printSubjectRank(scan.next());
                     break;
                 case 3:
                     break;
             }
-            
-            
+
             System.out.println("석차 조회를 계속 이용하시겠습니까? ([1] 예 / [2] 아니요)");
             System.out.print(">>");
             int answerContinue = getSafeInt();
@@ -163,7 +162,7 @@ public class MyApp {
         }
 
         int subjectIndex = subjectNum - 1;
-        
+
         System.out.print("중간점수: ");
         double midtermEx = getSafeDouble();
         System.out.print("기말점수: ");
