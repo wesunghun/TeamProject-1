@@ -21,7 +21,7 @@ public class Department
         // 입력 받은 학생 수 크기만큼 Student 배열 생성
         this.students = new Student[size];
     }
-    
+
     /**
      * 학생 객체를 배열에 저장하는 메소드
      *
@@ -42,7 +42,7 @@ public class Department
      * 학번 중복 여부 확인 메소드
      *
      * @param  stID 학번
-     * @return  중복이면 1, 아니면 0
+     * @return    중복이면 1, 아니면 0
      */
     public int isDuplicateID(long stID)
     {
@@ -146,12 +146,12 @@ public class Department
 
     /**
      * 특정 학생의 과목 성적을 수정하는 메소드
-     * @param stID 학번
-     * @param subjectIndex 과목 인덱스
-     * @param midterm 중간점수
-     * @param finalEx 기말점수
-     * @param assign 과제점수
-     * @param attend 출석점수
+     * @param  stID 학번
+     * @param  subjectIndex 과목 인덱스
+     * @param  midterm 중간점수
+     * @param  finalEx 기말점수
+     * @param  assign 과제점수
+     * @param  attend 출석점수
      */
     public void updateScore(long stID, int subjectIndex, double midterm, double finalEx, double assign, double attend)
     {
@@ -185,9 +185,9 @@ public class Department
 
     /**
      * 특정 학생의 과목명을 반환하는 메소드
-     * @param stID 학번
-     * @param index 과목 인덱스
-     * @return 과목명
+     * @param  stID 학번
+     * @param  index 과목 인덱스
+     * @return    과목명
      */
     public String getStdSubjectName(long stID, int index)
     {

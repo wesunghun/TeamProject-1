@@ -36,7 +36,6 @@ public class Student
      * 과목 각각을 배열에 저장하는 메소드
      *
      * @param  subject 과목 객체
-     * 
      */
     public void saveSubject(Subject subject)
     {
@@ -97,7 +96,7 @@ public class Student
     /**
      * 학번을 반환하는 메소드
      *
-     * @return 학번
+     * @return    학번
      */
     public long getStID()
     {
@@ -108,7 +107,7 @@ public class Student
     /**
      * 이름을 반환하는 메소드
      *
-     * @return 이름
+     * @return    이름
      */
     public String getName()
     {
@@ -141,14 +140,15 @@ public class Student
      * @return    과목 수 
      */
     public int getSubjectCount()
-    { 
+    {
         return subjectCount; 
     }
 
     /**
      * 인덱스로 과목 객체를 반환하는 메소드
+     *
      * @param index 과목 인덱스
-     * @return 과목 객체
+     * @return    과목 객체
      */
     public Subject getSubject(int index)
     { 

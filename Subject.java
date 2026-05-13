@@ -28,7 +28,7 @@ public class Subject
         this.assignment = assignment;
         this.attend = attend;
     }
-    
+
     /**
      * 과목명을 반환하는 메소드
      *
@@ -111,6 +111,7 @@ public class Subject
 
     /**
      * 중간점수를 수정하는 메소드
+     *
      * @param midtermEx 중간점수
      */
     public void setMidtermEx(double midtermEx)
@@ -120,6 +121,7 @@ public class Subject
 
     /**
      * 기말점수를 수정하는 메소드
+     * 
      * @param finalEx 기말점수
      */
     public void setFinalEx(double finalEx)
@@ -129,6 +131,7 @@ public class Subject
 
     /**
      * 과제점수를 수정하는 메소드
+     * 
      * @param assignment 과제점수
      */
     public void setAssignment(double assignment)
@@ -138,6 +141,7 @@ public class Subject
 
     /**
      * 출석점수를 수정하는 메소드
+     * 
      * @param attend 출석점수
      */
     public void setAttend(double attend)
