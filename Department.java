@@ -21,7 +21,7 @@ public class Department
         // 입력 받은 학생 수 크기만큼 Student 배열 생성
         this.students = new Student[size];
     }
-
+    
     /**
      * 학생 객체를 배열에 저장하는 메소드
      *

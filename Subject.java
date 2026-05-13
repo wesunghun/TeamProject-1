@@ -17,7 +17,7 @@ public class Subject
     /**
      * Subject 클래스의 객체 생성자
      */
-    public Subject(String sjName, String pfName ,double midtermEx, double finalEx, double assignment, 
+    public Subject(String sjName, String pfName, double midtermEx, double finalEx, double assignment, 
     double attend)
     {
         // 인스턴스 변수 초기화
@@ -28,11 +28,10 @@ public class Subject
         this.assignment = assignment;
         this.attend = attend;
     }
-
+    
     /**
      * 과목명을 반환하는 메소드
      *
-     * 
      * @return    과목명
      */
     public String getSubjectName()
@@ -45,7 +44,8 @@ public class Subject
      *
      * @return    중간, 기말, 과제, 출석 점수의 합
      */
-    public double calculateTotal(){
+    public double calculateTotal()
+    {
         return midtermEx + finalEx + assignment + attend;
     }
 
@@ -56,17 +56,17 @@ public class Subject
      */
     public String getGrade()
     {   
-        // 총점 계신
+        // 총점 계산
         double total = calculateTotal();
-        if(95 <= total && total <= 100){ // 총점을 기준으로 등급 반환
+        if (95 <= total && total <= 100){ // 총점을 기준으로 등급 반환
             return "A+";
         } else if(90 <= total && total <= 94){
             return "A0";
         } else if(85 <= total && total <= 89){
             return "B+";
-        } else if(80 <= total && total<= 84){
+        } else if(80 <= total && total <= 84){
             return "B0";
-        } else if(75 <= total && total<= 79){
+        } else if(75 <= total && total <= 79){
             return "C+";
         } else if(70 <= total && total <= 74){
             return "C0";
@@ -82,7 +82,6 @@ public class Subject
     /**
      * 과목 평점(4.5 만점) 반환하는 메소드
      *
-     * 
      * @return    과목 평점
      */
     public double getGPA()
