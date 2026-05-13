@@ -238,7 +238,7 @@ public class MyApp {
                 int input = scan.nextInt();
                 return input;
             } catch (InputMismatchException e){
-                System.out.println("과목 번호를 입략해주세요.");
+                System.out.println("과목 번호를 입력해주세요.");
                 scan.nextLine();
             }
         }
