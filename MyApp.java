@@ -11,7 +11,7 @@ import java.util.Scanner;
 import java.util.InputMismatchException;
 public class MyApp {
     /**
-     *  메인메뉴를 출력하는 메소드
+     * 메인메뉴를 출력하는 메소드
      */
     private static void printMainMenu()
     {
@@ -72,7 +72,7 @@ public class MyApp {
     private static void searchStdGrade(Department AI)
     {
         Scanner scan = new Scanner(System.in);
-        while(true){
+        while (true){
             System.out.println("=================================================");
             System.out.print("조회할 학번>>");
             long check = scan.nextLong();
@@ -81,9 +81,9 @@ public class MyApp {
             
             System.out.println("추가 조회 하시겠습니까? ([1] 예 / [2] 아니요)");
             int answerSearch = getSafeInt();
-            if (answerSearch == 2) {
+            if (answerSearch == 2){
                 break;   
-            } else {
+            } else{
                 continue;
             }
         }
