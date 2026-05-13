@@ -66,7 +66,7 @@ public class Department
         for (int i = 0; i < stdCount; i++){
 
             // 입력한 학번과 학생 배열의 학번 비교
-            if(students[i].getStID() == stID){
+            if (students[i].getStID() == stID){
 
                 System.out.println(students[i].getStID() + " 학생의 정보입니다.");
 
@@ -76,7 +76,7 @@ public class Department
                 break;
             }
         }
-        if(count == 0){
+        if (count == 0){
             System.out.println("학번이 " + stID +
                 "인 학생을 찾을 수 없습니다.");
         }
@@ -199,7 +199,8 @@ public class Department
         return null;
     }
 
-    public void printSubjectRank(String subjectName) {
+    public void printSubjectRank(String subjectName) 
+    {
         Student[] attendStudents = new Student[stdCount];
         int attendCount = 0;
 
