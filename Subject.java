@@ -134,7 +134,7 @@ public class Subject
      * 
      * @param assignment 과제점수
      */
-    public void setAssignEx(double assign)
+    public void setAssign(double assign)
     { 
         this.assign = assign; 
     }
@@ -144,7 +144,7 @@ public class Subject
      * 
      * @param attend 출석점수
      */
-    public void setAttendEx(double attend)
+    public void setAttend(double attend)
     { 
         this.attend = attend; 
     }

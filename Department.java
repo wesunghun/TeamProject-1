@@ -159,8 +159,8 @@ public class Department
             if (students[i].getStID() == stID){
                 students[i].getSubject(subjectIndex).setMidtermEx(midtermEx);
                 students[i].getSubject(subjectIndex).setFinalEx(finalEx);
-                students[i].getSubject(subjectIndex).setAssignEx(assign);
-                students[i].getSubject(subjectIndex).setAttendEx(attend);
+                students[i].getSubject(subjectIndex).setAssign(assign);
+                students[i].getSubject(subjectIndex).setAttend(attend);
                 System.out.println("성적이 수정되었습니다.");
                 return;
             }
