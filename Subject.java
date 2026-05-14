@@ -74,7 +74,7 @@ public class Subject
             return "D+";
         } else if(60 <= total && total <= 64){
             return "D0";
-        } else {
+        } else{
             return "F";
         }
     }
