@@ -205,15 +205,15 @@ public class Department
      */
     public int printSjList()
     {
-        if (stdCount == 0) {
+        if (stdCount == 0){
             System.out.println("등록된 학생이 없습니다.");
             return 0;
         }
         int sjcount = students[0].getSjCount();
         System.out.print("과목 목록: ");
-        for (int i = 0; i < sjcount; i++) {
+        for (int i = 0; i < sjcount; i++){
             System.out.print("[" + (i + 1) + "] " + students[0].getSubject(i).getSubjectName());
-            if (i < sjcount - 1) {
+            if (i < sjcount - 1){
                 System.out.print(" | ");
             }
         }
@@ -233,24 +233,24 @@ public class Department
         Student[] attendStudents = new Student[stdCount];
         int attendCount = 0;
 
-        for (int i = 0; i < stdCount; i++) {
-            if (idx < students[i].getSjCount()) {
+        for (int i = 0; i < stdCount; i++){
+            if (idx < students[i].getSjCount()){
                 attendStudents[attendCount++] = students[i];
             }
         }
 
-        if (attendCount == 0) {
+        if (attendCount == 0){
             System.out.println(subjectIndex + "번 과목을 수강하는 학생이 없습니다.");
             return;
         }
 
         String subjectName = attendStudents[0].getSubject(idx).getSubjectName();
 
-        for (int i = 0; i < attendCount - 1; i++) {
-            for (int j = i + 1; j < attendCount; j++) {
+        for (int i = 0; i < attendCount - 1; i++){
+            for (int j = i + 1; j < attendCount; j++){
                 double scoreI = attendStudents[i].getSubject(idx).calculateTotal();
                 double scoreJ = attendStudents[j].getSubject(idx).calculateTotal();
-                if (scoreJ > scoreI) {
+                if (scoreJ > scoreI){
                     Student temp = attendStudents[i];
                     attendStudents[i] = attendStudents[j];
                     attendStudents[j] = temp;
@@ -261,7 +261,7 @@ public class Department
         System.out.println("=================================================");
         System.out.println("다음은 " + subjectName + "의 수강 학생 석차입니다.");
         System.out.println("=================================================");
-        for (int i = 0; i < attendCount; i++) {
+        for (int i = 0; i < attendCount; i++){
             Student s = attendStudents[i];
             Subject sj = s.getSubject(idx);
             System.out.println((i + 1) + "위.\t" + s.getStID() + "\t" + s.getName() + "\t" +
