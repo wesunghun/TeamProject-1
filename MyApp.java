@@ -177,16 +177,23 @@ public class MyApp {
         } while (subjectNum < 1 || subjectNum > stdCount);
 
         int subjectIndex = subjectNum - 1;
-
-        System.out.print("중간점수: ");
-        double midtermEx = getSafeDouble();
-        System.out.print("기말점수: ");
-        double finalEx = getSafeDouble();
-        System.out.print("과제점수: ");
-        double assignEx = getSafeDouble();
-        System.out.print("출석점수: ");
-        double attendEx = getSafeDouble();
-
+        double midtermEx, finalEx, assignEx, attendEx;
+        do {
+            System.out.print("중간점수: ");
+            midtermEx = getSafeDouble();
+            System.out.print("기말점수: ");
+            finalEx = getSafeDouble();
+            System.out.print("과제점수: ");
+            assignEx = getSafeDouble();
+            System.out.print("출석점수: ");
+            attendEx = getSafeDouble();
+            if (midtermEx < 0 || finalEx < 0 || assignEx < 0 || attendEx < 0 || 
+                midtermEx + finalEx + assignEx + attendEx > 100){
+                System.out.println("각 점수는 0 이상, 총점은 100 이하여야 합니다. 다시 입력하세요.");
+            }
+        } while (midtermEx < 0 || finalEx < 0 || assignEx < 0 || attendEx < 0 || 
+                midtermEx + finalEx + assignEx + attendEx > 100);
+                
         AI.updateScore(updateID, subjectIndex, midtermEx, finalEx, assignEx, attendEx);
     }
 
@@ -229,14 +236,22 @@ public class MyApp {
         String sjName = scan.next();
         System.out.print("교수명: ");
         String pfName = scan.next();
-        System.out.print("중간점수: ");
-        double midtermEx = getSafeDouble();
-        System.out.print("기말점수: ");
-        double finalEx = getSafeDouble();
-        System.out.print("과제점수: ");
-        double assignEx = getSafeDouble();
-        System.out.print("출석점수: ");
-        double attendEx = getSafeDouble();
+        double midtermEx, finalEx, assignEx, attendEx;
+        do {
+            System.out.print("중간점수: ");
+            midtermEx = getSafeDouble();
+            System.out.print("기말점수: ");
+            finalEx = getSafeDouble();
+            System.out.print("과제점수: ");
+            assignEx = getSafeDouble();
+            System.out.print("출석점수: ");
+            attendEx = getSafeDouble();
+            if (midtermEx < 0 || finalEx < 0 || assignEx < 0 || attendEx < 0 || 
+                 midtermEx + finalEx + assignEx + attendEx > 100){
+                System.out.println("각 점수는 0 이상, 총점은 100 이하여야 합니다. 다시 입력하세요.");
+            }
+        } while (midtermEx < 0 || finalEx < 0 || assignEx < 0 || attendEx < 0 || 
+                 midtermEx + finalEx + assignEx + attendEx > 100);
 
         std.saveSubject(new Subject(sjName, pfName, midtermEx, finalEx, assignEx, attendEx));
     }
