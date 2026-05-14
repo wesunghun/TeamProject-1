@@ -167,13 +167,14 @@ public class MyApp {
             System.out.println("[" + (i + 1) + "] " + AI.getStdSjName(updateID, i));
         }
 
-        System.out.print("수정할 과목 번호>>");
-        int subjectNum = getSafeInt();
-
-        if (subjectNum < 1 || subjectNum > stdCount){
-            System.out.println("올바른 과목 번호를 입력하세요.");
-            return;
-        }
+        int subjectNum;
+        do {
+            System.out.print("수정할 과목 번호>>");
+            subjectNum = getSafeInt();
+            if (subjectNum < 1 || subjectNum > stdCount){
+                System.out.println("올바른 과목 번호를 입력하세요.");
+            }
+        } while (subjectNum < 1 || subjectNum > stdCount);
 
         int subjectIndex = subjectNum - 1;
 
