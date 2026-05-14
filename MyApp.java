@@ -100,7 +100,7 @@ public class MyApp {
     private static void manageRankMenu(Department AI)
     {
         Scanner scan = new Scanner(System.in);
-        while (true) {
+        while (true){
             System.out.println("\n=================================================");
             System.out.println("                [ 석차 조회 메뉴 ]                ");
             System.out.println("=================================================");
@@ -121,7 +121,7 @@ public class MyApp {
                     }
                     System.out.print("조회할 과목 번호>>");
                     int subjectNum = getSafeInt();
-                    if (subjectNum < 1 || subjectNum > subjectCount) {
+                    if (subjectNum < 1 || subjectNum > subjectCount){
                         System.out.println("올바른 과목 번호를 입력하세요.");
                         break;
                     }
@@ -130,7 +130,7 @@ public class MyApp {
                 case 3:
                     return;
             }
-            while (true) {
+            while (true){
                 System.out.println("석차 조회를 계속 이용하시겠습니까? ([1] 예 / [2] 아니요)");
                 System.out.print(">>");
                 int answerContinue = getSafeInt();
@@ -198,16 +198,16 @@ public class MyApp {
     private static long getValidStID(Department AI)
     {
         Scanner scan = new Scanner(System.in);
-        while (true) {
-            try {
+        while (true){
+            try{
                 System.out.print("학번: ");
                 long stID = scan.nextLong();
-                if (AI.isDuplicateID(stID) == 1) {
+                if (AI.isDuplicateID(stID) == 1){
                     System.out.println("이미 등록된 학번입니다.");
                     continue;
                 }
                 return stID;
-            } catch (InputMismatchException e) {
+            } catch (InputMismatchException e){
                 System.out.println("숫자만 입력 가능합니다.");
                 scan.nextLine();
             }
@@ -249,7 +249,7 @@ public class MyApp {
     private static int getSafeInt()
     {
         Scanner scan = new Scanner(System.in);
-        while (true) {
+        while (true){
             try{
                 int input = scan.nextInt();
                 return input;
