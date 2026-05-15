@@ -45,7 +45,7 @@ public class Department
      * @param  stID 학번
      * @return    중복이면 1, 아니면 0
      */
-    public int isDuplicateID(long stID)
+    public int isDuplicateStID(long stID)
     {
         for (int i = 0; i < stdCount; i++){
             if (students[i].getStID() == stID){

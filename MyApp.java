@@ -208,7 +208,7 @@ public class MyApp {
             try{
                 System.out.print("학번: ");
                 long stID = scan.nextLong();
-                if (AI.isDuplicateID(stID) == 1){
+                if (AI.isDuplicateStID(stID) == 1){
                     System.out.println("이미 등록된 학번입니다.");
                     continue;
                 }
